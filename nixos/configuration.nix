@@ -177,16 +177,15 @@
 
   networking.hostName = "nixos";
 
-  boot.loader.systemd-boot.enable = true;
   boot = {
     loader = {
       systemd-boot = {
         enable = true;
 	configurationLimit = 10;
+	consoleMode = "1";
       };
     };
   };
-  boot.loader.systemd-boot.consoleMode = "1";
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.defaultUserShell = pkgs.zsh;
