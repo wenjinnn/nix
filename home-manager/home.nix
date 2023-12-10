@@ -79,6 +79,7 @@
     ripgrep
     fzf
     socat
+    lazygit
     mpv
     jq
     ffmpeg
@@ -188,6 +189,33 @@
         src = pkgs.zsh-powerlevel10k;
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
+    ];
+  };
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+
+    withRuby = true;
+    withNodeJs = true;
+    withPython3 = true;
+
+    extraPackages = with pkgs; [
+      gnumake
+      cargo
+      gcc13
+      unzip
+      jdk
+      jdk8
+      jdk21
+      wget
+      curl
+      tree-sitter
+      luajitPackages.luarocks
+      python311Packages.pynvim
+      php82Packages.composer
+      python311Packages.pip
     ];
   };
 
