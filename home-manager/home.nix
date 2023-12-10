@@ -103,6 +103,20 @@
     # with more details log output
     nix-output-monitor
 
+    gnumake
+    cargo
+    gcc13
+    unzip
+    jdk
+    jdk8
+    jdk21
+    wget
+    curl
+    tree-sitter
+    luajitPackages.luarocks
+    python311Packages.pynvim
+    python311Packages.pip
+    gcc
     zip
     unzip
     glib
@@ -181,7 +195,7 @@
       ];
     };
     shellAliases = {
-      vi = "nvim ";
+      lg = "lazygit";
     };
     plugins = [
       {
@@ -202,20 +216,6 @@
     withPython3 = true;
 
     extraPackages = with pkgs; [
-      gnumake
-      cargo
-      gcc13
-      unzip
-      jdk
-      jdk8
-      jdk21
-      wget
-      curl
-      tree-sitter
-      luajitPackages.luarocks
-      python311Packages.pynvim
-      php82Packages.composer
-      python311Packages.pip
     ];
   };
   xdg.configFile.nvim.source = ./nvim;
