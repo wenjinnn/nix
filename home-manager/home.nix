@@ -103,19 +103,7 @@
     # with more details log output
     nix-output-monitor
 
-    gnumake
-    cargo
-    gcc13
-    unzip
-    jdk
-    jdk8
-    jdk21
-    wget
-    curl
-    tree-sitter
-    luajitPackages.luarocks
-    python311Packages.pynvim
-    python311Packages.pip
+    cmake
     gcc
     zip
     unzip
@@ -170,8 +158,15 @@
   # git
   programs.git = {
     enable = true;
-    userName = "hewenjin";
+    userName = "wenjin";
     userEmail = "hewenjin94@outlook.com";
+    extraConfig = {
+      color.ui = true;
+      core.editor = "nvim";
+      credential.helper = "store";
+      github.user = "wenjinnn";
+      push.autoSetupRemote = true;
+    };
   };
 
   # foot
@@ -216,6 +211,18 @@
     withPython3 = true;
 
     extraPackages = with pkgs; [
+      gnumake
+      cargo
+      unzip
+      jdk8
+      jdk21
+      wget
+      curl
+      tree-sitter
+      luajitPackages.luarocks
+      python311Packages.pynvim
+      python311Packages.pip
+      gcc
     ];
   };
   xdg.configFile.nvim.source = ./nvim;
