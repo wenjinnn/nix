@@ -103,6 +103,7 @@
     # with more details log output
     nix-output-monitor
 
+    gnumake
     cmake
     gcc
     zip
@@ -211,7 +212,6 @@
     withPython3 = true;
 
     extraPackages = with pkgs; [
-      gnumake
       cargo
       unzip
       jdk8
