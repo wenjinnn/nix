@@ -72,6 +72,13 @@
     auto-optimise-store = true;
   };
 
+  # do garbage collection weekly to keep disk usage low
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -171,6 +178,14 @@
   networking.hostName = "nixos";
 
   boot.loader.systemd-boot.enable = true;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+	configurationLimit = 10;
+      };
+    };
+  };
   boot.loader.systemd-boot.consoleMode = "1";
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
