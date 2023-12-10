@@ -128,6 +128,7 @@
     wget
     git
     parted
+    home-manager
     fira-code-nerdfont
     tree
     interception-tools
