@@ -218,6 +218,7 @@
       python311Packages.pip
     ];
   };
+  xdg.configFile.nvim.source = ../nvim;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
