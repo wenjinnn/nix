@@ -199,6 +199,11 @@
         src = pkgs.zsh-powerlevel10k;
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
+      {
+        name = "powerlevel10k-config";
+        src = ./dotfiles;
+        file = ".p10k.zsh";
+      }
     ];
   };
 
@@ -225,7 +230,7 @@
       gcc
     ];
   };
-  xdg.configFile.nvim.source = ./nvim;
+  xdg.configFile.nvim.source = ./xdg-config-home/nvim;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
