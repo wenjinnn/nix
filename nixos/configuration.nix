@@ -89,6 +89,10 @@
     docker.enable = true;
     libvirtd.enable = true;
   };
+  programs.clash-verge = {
+      enable = true;
+      autoStart = true;
+  };
    
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
