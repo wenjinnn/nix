@@ -85,6 +85,7 @@ return {
       \ sonarlint-language-server
       \ jq
       \ jsonls
+      \ nil
     ]])
       end
       local lsp_status = require('lsp-status')

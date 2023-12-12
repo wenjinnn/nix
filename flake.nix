@@ -28,14 +28,14 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     ags.url = "github:Aylur/ags";
-    lf-icons = {
-      url = "github:gokcehan/lf";
-      flake = false;
-    };
-    more-waita = {
-      url = "github:somepaulo/MoreWaita";
-      flake = false;
-    };
+    # lf-icons = {
+    #   url = "github:gokcehan/lf";
+    #   flake = false;
+    # };
+    # more-waita = {
+    #   url = "github:somepaulo/MoreWaita";
+    #   flake = false;
+    # };
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
