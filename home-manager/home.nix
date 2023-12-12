@@ -724,7 +724,7 @@
           
           # App launcher
           # bindr = SUPER, SUPER_L, exec, ~/.config/eww/scripts/toggle-overview.sh --keypress &
-          bind = SUPER, D, exec, ags -b hypr -t applauncher
+          bind = SUPER, A, exec, ags -b hypr -t applauncher
           
           ################################# eww keybinds ################################
           bindr = CONTROLSUPERSHIFTALT, R, exec, ags quit; ags -b hypr
@@ -744,6 +744,8 @@
           bind = Super, Slash, submap, reset
           bind = , Escape, submap, reset
           submap=reset
+
+          bind=Super, D, exec, ags -b hypr -t dashboard
           
           ######### Power Menu #########
           bind=CTRLAlt,Delete,exec, ags -b hypr -t powermenu
