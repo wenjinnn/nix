@@ -409,25 +409,9 @@
       hyprland = {
         enable = true;
         xwayland.enable = true;
-        settings = {
-          exec-once = [
-            "sleep 1 && swww init && swww img ~/.config/eww/images/wallpaper --transition-fps 60 --transition-type random --transition-pos \"${cursorposx:-0}, ${cursorposy_inverted:-0}\" && systemctl --user start swww-next.timer &"
-            "ags -b hypr"
-            "systemctl --user start xsettingsd.service && echo \"Xft.dpi: 192\" | xrdb -merge"
-            "dbus-update-activation-environment --all"
-            "/usr/bin/gnome-keyring-daemon --start --components=secrets"
-            "fcitx5 -d --replace"
-            "swayidle -w timeout 300 'gtklock -d' timeout 360 'hyprctl dispatch dpms off' after-resume 'hyprctl dispatch dpms on' before-sleep 'gtklock -d && sleep 1 && hyprctl dispatch dpms off'"
-            "wl-paste --watch cliphist store"
-            "kdeconnect-indicator"
-            "udiskie &"
-            "libinput-gestures-setup start"
-            "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-            "hyprctl dispatch exec [workspace special:monitor silent] foot btop"
-            "hyprctl dispatch exec [workspace special:evolution silent] evolution"
-            "hyprctl dispatch exec [workspace special:kdeconnect silent] kdeconnect-app"
-            "hyprctl dispatch exec [workspace special:windows silent] \"virt-manager --no-fork --show-domain-console win10 -c qemu:///system\""
-          ];
+        systemd.enable = true;
+        config = {
+          xdg.configFile = ./xdg-config-home/hypr/hyprland.conf;
         };
       };
     };
