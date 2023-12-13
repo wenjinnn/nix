@@ -89,10 +89,6 @@
     docker.enable = true;
     libvirtd.enable = true;
   };
-  programs.clash-verge = {
-      enable = true;
-      autoStart = true;
-  };
    
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
@@ -140,6 +136,7 @@
     git
     parted
     home-manager
+
     fira-code-nerdfont
     tree
     interception-tools
@@ -149,6 +146,9 @@
   desktopManager.gnome = {
     enable = true;
     };
+  };
+  services.sing-box = {
+    enable = true;
   };
   services.interception-tools = {
     enable = true;
