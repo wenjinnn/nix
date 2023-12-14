@@ -100,6 +100,8 @@
     du-dust         
     lsof            
     dbeaver
+    swayidle
+    udiskie
     btop
     zsh-powerlevel10k
     swww
