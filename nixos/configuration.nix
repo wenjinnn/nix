@@ -82,13 +82,11 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.nftables.enable = true;
   networking.firewall = {
-    enable = false;
-    trustedInterfaces = [ "tun0" ];
-    extraCommands = "iptables -A FORWARD -i tun0+ -j ACCEPT";
-    interfaces."tun0".allowedUDPPortRanges = [ {from = 0; to = 65535;}];
-    interfaces."tun0".allowedTCPPortRanges = [ {from = 0; to = 65535;}];
-    logRefusedPackets = true;
+    enable = true;
+    checkReversePath = "loose";
+    trustedInterfaces = [ "tun*" ];
     allowedTCPPorts = [ 80 443 ];
     allowedUDPPortRanges = [
       { from = 4000; to = 4007; }
