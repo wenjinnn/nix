@@ -140,9 +140,9 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".config/electron-flags.conf".source = ./dotfiles/electron-flags.conf;
-    ".config/code-flags.conf".source = ./dotfiles/electron-flags.conf;
-    ".config/microsoft-edge-stable-flags.conf".source = ./dotfiles/electron-flags.conf;
+    ".config/electron-flags.conf".source = ./xdg-config-home/electron-flags.conf;
+    ".config/code-flags.conf".source = ./xdg-config-home/electron-flags.conf;
+    ".config/microsoft-edge-stable-flags.conf".source = ./xdg-config-home/electron-flags.conf;
     ".config/ranger".source = ./xdg-config-home/ranger;
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/project/my/nix-config/home-manager/xdg-config-home/nvim";
     ".config/mpv".source = ./xdg-config-home/mpv;
@@ -432,7 +432,6 @@
       gcc
     ];
   };
-  home.file.
 
 
   services = {
