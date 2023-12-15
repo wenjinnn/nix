@@ -140,6 +140,12 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
+    ".config/electron-flags.conf".source = ./dotfiles/electron-flags.conf;
+    ".config/code-flags.conf".source = ./dotfiles/electron-flags.conf;
+    ".config/microsoft-edge-stable-flags.conf".source = ./dotfiles/electron-flags.conf;
+    ".config/ranger".source = ./xdg-config-home/ranger;
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/project/my/nix-config/home-manager/xdg-config-home/nvim";
+    ".config/mpv".source = ./xdg-config-home/mpv;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -165,6 +171,31 @@
 
   # Enable home-manager
   programs.home-manager.enable = true;
+  home.pointerCursor = {
+    gtk.enable = true;
+    # x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Adwaita";
+    size = 24;
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.flat-remix-gtk;
+      name = "Adwaita";
+    };
+
+    iconTheme = {
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
+    };
+
+    font = {
+      name = "Sans";
+      size = 11;
+    };
+  };
 
 
   # git
@@ -401,7 +432,7 @@
       gcc
     ];
   };
-  home.file."./.config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/project/my/nix-config/home-manager/xdg-config-home/nvim";
+  home.file.
 
 
   services = {
@@ -411,10 +442,10 @@
     };
     xsettingsd = {
       enable = true;
-      # settings = {
-      #   "Gdk/UnscaledDPI" = 98304;
-      #   "Gdk/WindowScalingFactor" = 2;
-      # };
+      settings = {
+        "Gdk/UnscaledDPI" = 98304;
+        "Gdk/WindowScalingFactor" = 2;
+      };
     };
   };
   # hyprland
@@ -424,9 +455,9 @@
         enable = true;
         xwayland.enable = true;
         systemd.enable = true;
-        settings = {
-
-        };
+        # settings = {
+        #
+        # };
         extraConfig = ''
           env = XMODIFIERS, @im=fcitx
           # env = GTK_IM_MODULE, fcitx
