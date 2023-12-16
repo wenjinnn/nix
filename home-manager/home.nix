@@ -45,6 +45,14 @@
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
+      microsoft-edge = {
+        commandLineArgs = [
+        "--password-store=gnome-libsecret"
+        "--enable-features=UseOzonePlatform"
+        "--ozone-platform=wayland"
+        "--enable-wayland-ime"
+        ];
+      };
     };
   };
 
@@ -143,9 +151,12 @@
     ".config/electron-flags.conf".source = ./xdg-config-home/electron-flags.conf;
     ".config/code-flags.conf".source = ./xdg-config-home/electron-flags.conf;
     ".config/microsoft-edge-stable-flags.conf".source = ./xdg-config-home/electron-flags.conf;
-    ".config/ranger".source = ./xdg-config-home/ranger;
+    ".config/microsoft-edge-flags.conf".source = ./xdg-config-home/electron-flags.conf;
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/project/my/nix-config/home-manager/xdg-config-home/nvim";
     ".config/mpv".source = ./xdg-config-home/mpv;
+    ".config/fcitx5".source = ./xdg-config-home/fcitx5;
+    ".config/qt5ct".source = ./xdg-config-home/qt5ct;
+    ".config/ctags".source = ./xdg-config-home/ctags;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -175,7 +186,7 @@
     gtk.enable = true;
     # x11.enable = true;
     package = pkgs.bibata-cursors;
-    name = "Adwaita";
+    name = "Adwaita-Dark";
     size = 24;
   };
 
@@ -183,12 +194,12 @@
     enable = true;
     theme = {
       package = pkgs.flat-remix-gtk;
-      name = "Adwaita";
+      name = "Adwaita-Dark";
     };
 
     iconTheme = {
       package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      name = "Adwaita-Dark";
     };
 
     font = {
@@ -502,9 +513,9 @@
           # exec-once = blueberry-tray &
           exec-once = kdeconnect-indicator
           exec-once = udiskie &
-          # exec-once = swayidle -w before-sleep 'gtklock' &
+          # exec-once = swayidle -w before-sleep 'ags -b hypr -r "lockscreen.lockscreen()"' &
           # exec-once = swayidle -w timeout 450 'systemctl suspend'
-          exec-once = swayidle -w timeout 300 'gtklock -d' timeout 360 'hyprctl dispatch dpms off' after-resume 'hyprctl dispatch dpms on' before-sleep 'gtklock -d && sleep 1 && hyprctl dispatch dpms off'
+          exec-once = swayidle -w timeout 300 'ags -b hypr -r "lockscreen.lockscreen()" -d' timeout 360 'hyprctl dispatch dpms off' after-resume 'hyprctl dispatch dpms on' before-sleep 'ags -b hypr -r "lockscreen.lockscreen()" -d && sleep 1 && hyprctl dispatch dpms off'
           # Clipboard history
           exec-once = wl-paste --watch cliphist store
           
@@ -748,8 +759,8 @@
           bind = SUPERSHIFT, P, exec, playerctl play-pause
           
           #Lock screen  |  blur: --effect-blur=20x20
-          # bind = SUPER, L, exec, gtklock
-          bind = CONTROLSUPERSHIFTALT, L, exec, gtklock
+          # bind = SUPER, L, exec, ags -b hypr -r "lockscreen.lockscreen()"
+          bind = CONTROLSUPERSHIFTALT, L, exec, ags -b hypr -r "lockscreen.lockscreen()"
           bind = CONTROLSUPERSHIFTALT, O, exec, pkill wlogout || wlogout -p layer-shell
           bind = CONTROLSUPERSHIFTALT, D, exec, systemctl poweroff
           bindl = CONTROLSUPERSHIFTALT, S, exec, systemctl suspend
