@@ -93,7 +93,6 @@
       { from = 8000; to = 8010; }
     ];
   };
-  
   # virtualisation
   programs.virt-manager.enable = true;    
   virtualisation = {
@@ -147,16 +146,15 @@
     git
     parted
     home-manager
-
     fira-code-nerdfont
     tree
     interception-tools
   ];
   services.xserver = {
-  displayManager.gdm.enable = true;
-  desktopManager.gnome = {
-    enable = true;
-    };
+    displayManager.gdm.enable = true;
+    desktopManager.gnome = {
+      enable = true;
+      };
   };
   services.sing-box = {
     enable = true;
@@ -176,13 +174,17 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
+  programs.dconf.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
   };
   programs.hyprland = {
-        enable = true;
-        xwayland.enable = true;
+    enable = true;
+    xwayland.enable = true;
+  };
+  security = {
+    polkit.enable = true;
   };
   programs.zsh.enable = true;
   xdg.portal = {
@@ -216,10 +218,10 @@
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = [
         "wheel"
-	"networkmanager"
-	"docker"
-	"audio"
-	"video"
+	    "networkmanager"
+	    "docker"
+	    "audio"
+	    "video"
         "libvirtd"
       ];
     };

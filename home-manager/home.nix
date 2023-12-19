@@ -7,7 +7,15 @@
   config,
   pkgs,
   ...
-}: {
+}: 
+  let 
+    electron-flags = [
+      "--password-store=gnome-libsecret"
+      "--enable-features=UseOzonePlatform"
+      "--ozone-platform=wayland"
+      "--enable-wayland-ime"
+    ];
+  in {
   # You can import other home-manager modules here
   imports = [
     inputs.ags.homeManagerModules.default
@@ -28,6 +36,11 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+      (self: super: {
+        microsoft-edge = super.microsoft-edge.override {
+          commandLineArgs = electron-flags;
+        };
+      })
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -46,12 +59,7 @@
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
       microsoft-edge = {
-        commandLineArgs = [
-        "--password-store=gnome-libsecret"
-        "--enable-features=UseOzonePlatform"
-        "--ozone-platform=wayland"
-        "--enable-wayland-ime"
-        ];
+        commandLineArgs = "${electron-flags}";
       };
     };
   };
@@ -119,6 +127,11 @@
     # with more details log output
     nix-output-monitor
 
+    adwaita-qt6
+    font-awesome
+    adw-gtk3
+    dconf
+    nwg-look
     gnumake
     cmake
     gcc
@@ -130,7 +143,10 @@
     gnome-extension-manager
     nautilus-open-any-terminal
     qogir-icon-theme
+    gnome.nautilus
     gnome.nautilus-python
+    gnome.gnome-tweaks
+    gnome.gnome-themes-extra
     waydroid
   ];
 
@@ -138,6 +154,15 @@
   #   "Xcursor.size" = 16;
   #   "Xft.dpi" = 172;
   # };
+
+  xdg.desktopEntries."org.gnome.Settings" = {
+    name = "Settings";
+    comment = "Gnome Control Center";
+    icon = "org.gnome.Settings";
+    exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome.gnome-control-center}/bin/gnome-control-center";
+    categories = [ "X-Preferences" ];
+    terminal = false;
+  };
 
  
  
@@ -155,6 +180,7 @@
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/project/my/nix-config/home-manager/xdg-config-home/nvim";
     ".config/mpv".source = ./xdg-config-home/mpv;
     ".config/fcitx5".source = ./xdg-config-home/fcitx5;
+    ".local/share/fcitx5".source = ./xdg-data-home/fcitx5;
     ".config/qt5ct".source = ./xdg-config-home/qt5ct;
     ".config/ctags".source = ./xdg-config-home/ctags;
 
@@ -178,6 +204,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    # GTK_THEME = "Adwaita-dark";
   };
 
   # Enable home-manager
@@ -186,20 +213,24 @@
     gtk.enable = true;
     # x11.enable = true;
     package = pkgs.bibata-cursors;
-    name = "Adwaita-Dark";
+    name = "Adwaita";
     size = 24;
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style.name = "adwaita-dark";
+  };
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Adwaita-Dark";
+      name = "adw-gtk3-dark";
     };
 
     iconTheme = {
       package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita-Dark";
+      name = "Adwaita";
     };
 
     font = {
@@ -208,6 +239,13 @@
     };
   };
 
+
+  dconf.enable = true;
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 
   # git
   programs.git = {
@@ -479,6 +517,7 @@
           env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
           env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
           env = CLUTTER_BACKEND, wayland
+          env = ADW_DISABLE_PORTAL, 1
           # env = QT_SCALE_FACTOR, 2
           #env = WLR_NO_HARDWARE_CURSORS, 1
           #env = GLFW_IM_MODULE, ibus
