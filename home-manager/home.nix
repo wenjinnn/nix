@@ -182,6 +182,10 @@
       source = ./xdg-config-home/nvim;
       recursive = true;
     };
+    ".config/ranger" = {
+      source = ./xdg-config-home/ranger;
+      recursive = true;
+    };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
