@@ -131,9 +131,11 @@
     nwg-look
     gnumake
     cmake
+    nodejs
     gcc
     zip
     unzip
+    cliphist
     glib
     wl-clipboard
     wl-gammactl
@@ -267,7 +269,10 @@
   # fcitx5
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-rime ];
+    fcitx5.addons = with pkgs; [
+      fcitx5-rime
+      fcitx5-mozc
+    ];
   };
 
   # ags
