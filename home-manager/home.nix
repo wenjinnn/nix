@@ -58,9 +58,6 @@
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
-      microsoft-edge = {
-        commandLineArgs = "${electron-flags}";
-      };
     };
   };
 
@@ -110,11 +107,11 @@
     ranger
     gnused
     gnutar
-    gawk            
-    zstd            
-    gnupg           
-    du-dust         
-    lsof            
+    gawk
+    zstd
+    gnupg
+    du-dust
+    lsof
     dbeaver
     swayidle
     udiskie
@@ -173,16 +170,18 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".config/electron-flags.conf".source = ./xdg-config-home/electron-flags.conf;
-    ".config/code-flags.conf".source = ./xdg-config-home/electron-flags.conf;
-    ".config/microsoft-edge-stable-flags.conf".source = ./xdg-config-home/electron-flags.conf;
-    ".config/microsoft-edge-flags.conf".source = ./xdg-config-home/electron-flags.conf;
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/project/my/nix-config/home-manager/xdg-config-home/nvim";
     ".config/mpv".source = ./xdg-config-home/mpv;
     ".config/fcitx5".source = ./xdg-config-home/fcitx5;
-    ".local/share/fcitx5".source = ./xdg-data-home/fcitx5;
     ".config/qt5ct".source = ./xdg-config-home/qt5ct;
     ".config/ctags".source = ./xdg-config-home/ctags;
+    ".local/share/fcitx5" = {
+      source = ./xdg-data-home/fcitx5;
+      recursive = true;
+    };
+    ".config/nvim" = {
+      source = ./xdg-config-home/nvim;
+      recursive = true;
+    };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
