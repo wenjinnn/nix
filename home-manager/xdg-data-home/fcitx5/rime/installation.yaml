@@ -2,7 +2,7 @@ distribution_code_name: "fcitx-rime"
 distribution_name: Rime
 distribution_version: 5.0.16
 install_time: "Sun Jun 20 17:44:14 2021"
-installation_id: arch
+installation_id: nixos
 rime_version: 1.8.5
-sync_dir: "/home/hewenjin/MEGA/RimeSync"
+sync_dir: "/home/wenjin/project/my/archive/rime/"
 update_time: "Mon Jul 31 23:53:07 2023"

@@ -125,7 +125,6 @@
     nix-output-monitor
 
     adwaita-qt6
-    font-awesome
     adw-gtk3
     dconf
     nwg-look
@@ -516,7 +515,6 @@
         # };
         extraConfig = ''
           env = XMODIFIERS, @im=fcitx
-          # env = GTK_IM_MODULE, fcitx
           env = QT_IM_MODULE, fcitx
           env = SDL_IM_MODULE, fcitx
           env = QT_QPA_PLATFORMTHEME, qt5ct

@@ -147,9 +147,41 @@
     parted
     home-manager
     fira-code-nerdfont
+    sarasa-gothic
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    font-awesome
+    lexend
+    material-symbols
     tree
     interception-tools
   ];
+  fonts = {
+    fontDir.enable = true;
+    enableDefaultPackages = true;
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        monospace = [
+          "Noto Sans Mono CJK SC"
+          "Sarasa Mono SC"
+          "FiraCode Nerd Font Mono"
+        ];
+        sansSerif = [
+          "Noto Sans CJK SC"
+          "Sarasa Sans SC"
+          "DejaVu Sans"
+        ];
+        serif = [
+          "Noto Serif CJK SC"
+          "Sarasa Serif SC"
+          "DejaVu Serif"
+        ];
+      };
+    };
+  };
   services.xserver = {
     displayManager.gdm.enable = true;
     desktopManager.gnome = {
