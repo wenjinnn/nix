@@ -96,7 +96,7 @@
     fzf
     socat
     lazygit
-    mpv
+    (mpv.override { scripts = [mpvScripts.mpris]; })
     jq
     ffmpeg
     lsd
