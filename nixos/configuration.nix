@@ -229,6 +229,11 @@
 
   networking.hostName = "nixos";
 
+  systemd.sleep.extraConfig = ''
+    [Sleep]
+    HibernateMode=shutdown
+'';
+
   boot = {
     loader = {
       systemd-boot = {
