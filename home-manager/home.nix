@@ -108,6 +108,7 @@
     pavucontrol
     brightnessctl
     lsd
+    vscode
     cowsay
     file
     which
@@ -134,6 +135,7 @@
     nix-output-monitor
 
     adwaita-qt6
+    adwaita-qt
     adw-gtk3
     dconf
     nwg-look
@@ -180,10 +182,13 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".config/mpv".source = ./xdg-config-home/mpv;
     ".config/fcitx5".source = ./xdg-config-home/fcitx5;
     ".config/qt5ct".source = ./xdg-config-home/qt5ct;
     ".config/ctags".source = ./xdg-config-home/ctags;
+    ".config/mpv" = {
+      source = ./xdg-config-home/mpv;
+      recursive = true;
+    };
     ".local/share/fcitx5" = {
       source = ./xdg-data-home/fcitx5;
       recursive = true;
