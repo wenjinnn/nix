@@ -168,19 +168,19 @@
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         monospace = [
-          "Noto Sans Mono CJK SC"
-          "Sarasa Mono SC"
           "FiraCode Nerd Font Mono"
+          "Sarasa Mono SC"
+          "Noto Sans Mono CJK SC"
         ];
         sansSerif = [
-          "Noto Sans CJK SC"
-          "Sarasa Sans SC"
           "DejaVu Sans"
+          "Sarasa Sans SC"
+          "Noto Sans CJK SC"
         ];
         serif = [
-          "Noto Serif CJK SC"
-          "Sarasa Serif SC"
           "DejaVu Serif"
+          "Sarasa Serif SC"
+          "Noto Serif CJK SC"
         ];
       };
     };
