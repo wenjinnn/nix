@@ -15,9 +15,10 @@ class PowerMenu extends Service {
     get title() { return this.#title; }
     get cmd() { return this.#cmd; }
 
-    /** @param {'sleep' | 'reboot' | 'logout' | 'shutdown'} action */
+    /** @param {'hibernate' | 'sleep' | 'reboot' | 'logout' | 'shutdown'} action */
     action(action) {
         [this.#cmd, this.#title] = {
+            'hibernate': ['systemctl hibernate', 'Hibernate'],
             'sleep': ['systemctl suspend', 'Sleep'],
             'reboot': ['systemctl reboot', 'Reboot'],
             'logout': ['hyprctl dispatch exit', 'Log Out'],

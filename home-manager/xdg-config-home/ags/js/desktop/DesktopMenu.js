@@ -40,6 +40,7 @@ export default () => Widget.Menu({
             }),
             submenu: Widget.Menu({
                 children: [
+                    Item('Hibernate', icons.powermenu.hibernate, () => PowerMenu.action('hibernate')),
                     Item('Shutdown', icons.powermenu.shutdown, () => PowerMenu.action('shutdown')),
                     Item('Log Out', icons.powermenu.logout, () => PowerMenu.action('logout')),
                     Item('Reboot', icons.powermenu.reboot, () => PowerMenu.action('reboot')),

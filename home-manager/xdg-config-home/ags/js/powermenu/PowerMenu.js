@@ -4,7 +4,7 @@ import PowerMenu from '../services/powermenu.js';
 import ShadedPopup from './ShadedPopup.js';
 
 /**
- * @param {'sleep' | 'reboot' | 'logout' | 'shutdown'} action
+ * @param {'hibernate' | 'sleep' | 'reboot' | 'logout' | 'shutdown'} action
  * @param {string} label
  */
 const SysButton = (action, label) => Widget.Button({
@@ -23,6 +23,7 @@ export default () => ShadedPopup({
     expand: true,
     child: Widget.Box({
         children: [
+            SysButton('hibernate', 'Hibernate'),
             SysButton('sleep', 'Sleep'),
             SysButton('reboot', 'Reboot'),
             SysButton('logout', 'Log Out'),
