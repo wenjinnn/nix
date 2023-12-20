@@ -85,7 +85,7 @@
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
-    # '')
+    # '')/
     microsoft-edge
     neofetch
     sassc
@@ -99,11 +99,27 @@
     (mpv.override { scripts = [mpvScripts.mpris]; })
     jq
     ffmpeg
+    hyprpicker
+    wf-recorder
+    imagemagick
+    slurp
+    wl-gammactl
+    tesseract
+    pavucontrol
+    sarasa-gothic
+    brightnessctl
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    font-awesome
+    lexend
+    material-symbols
     lsd
     cowsay
     file
     which
     tree
+    lsd
     ranger
     gnused
     gnutar
@@ -370,7 +386,7 @@
     };
     shellAliases = {
       lg = "lazygit";
-      ll = "ls -lah";
+      ll = "lsd -lah";
       py = "python";
       rr = "ranger";
     };
