@@ -146,11 +146,21 @@
     git
     parted
     home-manager
-    fira-code-nerdfont
     tree
     interception-tools
   ];
   fonts = {
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-emoji
+      sarasa-gothic
+      (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" "Mononoki" "CascadiaCode" ]; })
+      font-awesome
+      lexend
+      material-symbols
+    ];
     fontDir.enable = true;
     enableDefaultPackages = true;
     fontconfig = {
@@ -223,8 +233,8 @@
     loader = {
       systemd-boot = {
         enable = true;
-	configurationLimit = 10;
-	consoleMode = "1";
+        configurationLimit = 10;
+        consoleMode = "1";
       };
     };
   };
@@ -243,10 +253,10 @@
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = [
         "wheel"
-	    "networkmanager"
-	    "docker"
-	    "audio"
-	    "video"
+        "networkmanager"
+        "docker"
+        "audio"
+        "video"
         "libvirtd"
       ];
     };

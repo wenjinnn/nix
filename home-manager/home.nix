@@ -106,14 +106,7 @@
     wl-gammactl
     tesseract
     pavucontrol
-    sarasa-gothic
     brightnessctl
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    font-awesome
-    lexend
-    material-symbols
     lsd
     cowsay
     file
