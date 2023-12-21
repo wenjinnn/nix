@@ -53,7 +53,7 @@ export default {
         screen: 'display-brightness-symbolic',
     },
     powermenu: {
-        hibernate: 'system-sleep-symbolic',
+        hibernate: 'weather-few-clouds-night-symbolic',
         sleep: 'weather-clear-night-symbolic',
         reboot: 'system-reboot-symbolic',
         logout: 'system-log-out-symbolic',
