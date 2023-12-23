@@ -139,6 +139,7 @@
     adw-gtk3
     dconf
     nwg-look
+    gtklock
     gnumake
     cmake
     nodejs
@@ -203,6 +204,10 @@
     };
     ".config/hypr" = {
       source = ./xdg-config-home/hypr;
+      recursive = true;
+    };
+    ".config/gtklock" = {
+      source = ./xdg-config-home/gtklock;
       recursive = true;
     };
 
