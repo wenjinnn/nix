@@ -140,6 +140,9 @@
     dconf
     nwg-look
     gtklock
+    gtklock-userinfo-module
+    gtklock-powerbar-module
+    gtklock-playerctl-module
     gnumake
     cmake
     nodejs
@@ -206,10 +209,12 @@
       source = ./xdg-config-home/hypr;
       recursive = true;
     };
-    ".config/gtklock" = {
-      source = ./xdg-config-home/gtklock;
-      recursive = true;
-    };
+    ".config/gtklock/config.ini".text = ''
+      [main]
+      gtk-theme=adw-gtk3-dark
+      modules=${pkgs.gtklock-powerbar-module}/lib/gtklock/powerbar-module.so;${pkgs.gtklock-playerctl-module}/lib/gtklock/playerctl-module.so;${pkgs.gtklock-userinfo-module}/lib/gtklock/userinfo-module.so
+      time-format=%T
+    '';
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
