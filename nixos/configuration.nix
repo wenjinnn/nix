@@ -11,7 +11,7 @@
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
+    outputs.nixosModules.interception-tools
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
@@ -62,7 +62,8 @@
       name = "nix/path/${name}";
       value.source = value.flake;
     })
-    config.nix.registry;
+    config.nix.registry
+      ;
 
   nix.package = pkgs.nixFlakes;
   nix.settings = {
@@ -156,7 +157,7 @@
       noto-fonts-cjk-serif
       noto-fonts-emoji
       sarasa-gothic
-      (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" "Mononoki" "CascadiaCode" ]; })
+      (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" "Mononoki" "CascadiaCode" "DejaVuSansMono"]; })
       font-awesome
       lexend
       material-symbols
@@ -168,7 +169,7 @@
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         monospace = [
-          "FiraCode Nerd Font Mono"
+          "DejaVuSansM Nerd Font Mono"
           "Sarasa Mono SC"
           "Noto Sans Mono CJK SC"
         ];
@@ -193,17 +194,6 @@
   };
   services.sing-box = {
     enable = true;
-  };
-  services.interception-tools = {
-    enable = true;
-    plugins = [
-            pkgs.interception-tools-plugins.dual-function-keys
-    ];
-    udevmonConfig = ''
-      - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c /etc/interception/capslock2ctrlesc.yaml | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
-        DEVICE:
-          NAME: "AT Translated Set 2 keyboard"
-    '';
   };
  
   # Some programs need SUID wrappers, can be configured further or are

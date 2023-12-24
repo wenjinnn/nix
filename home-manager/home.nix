@@ -312,6 +312,20 @@
     ];
   };
 
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        dip-aware = "yes";
+        terminal = "${pkgs.foot}/bin/foot -e";
+        layer = "overlay";
+      };
+      dmenu = {
+        exit-immediately-if-empty="yes";
+      };
+    };
+  };
+
   # foot
   programs.foot = {
     enable = true;
