@@ -71,8 +71,8 @@ const Applauncher = () => {
                 entry.grab_focus();
             }
             else {
-                items = mkItems();
-                list.children = items;
+                // items = mkItems();
+                // list.children = items;
             }
         }),
     });
