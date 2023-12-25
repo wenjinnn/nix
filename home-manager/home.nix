@@ -633,7 +633,7 @@
           };
           decoration = {
 	        rounding = 10;
-            drop_shadow = "yes";
+            drop_shadow = "false";
             shadow_range = 8;
             shadow_render_power = 2;
             "col.shadow" = "rgba(00000044)";
@@ -648,6 +648,7 @@
               noise = 0.01;
               contrast = 0.9;
               brightness = 0.8;
+              xray = true;
             };
           };
           animations = {
@@ -694,6 +695,7 @@
             "noinitialfocus,class:^(xwaylandvideobridge)$"
           ];
           layerrule = [
+            "blur, powermenu"
             "blur, gtk-layer-shell"
             "ignorezero, gtk-layer-shell"
           ];
