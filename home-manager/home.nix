@@ -100,26 +100,33 @@
     jq
     ffmpeg
     hyprpicker
+    supergfxctl
+    wayshot
     wf-recorder
     imagemagick
     slurp
-    wl-gammactl
     tesseract
     pavucontrol
+    swappy
     brightnessctl
+    gimp
+    obs-studio
     lsd
     vscode
     cowsay
     file
     which
     tree
-    lsd
     ranger
     gnused
     gnutar
     gawk
     zstd
     gnupg
+    libsForQt5.qt5ct
+    libsForQt5.qtstyleplugins
+    evolution
+    evolution-data-server
     du-dust
     lsof
     dbeaver
@@ -133,9 +140,6 @@
     # it provides the command `nom` works just like `nix`
     # with more details log output
     nix-output-monitor
-
-    adwaita-qt6
-    adwaita-qt
     adw-gtk3
     dconf
     nwg-look
@@ -187,7 +191,7 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     ".config/fcitx5".source = ./xdg-config-home/fcitx5;
-    ".config/qt5ct".source = ./xdg-config-home/qt5ct;
+    # ".config/qt5ct".source = ./xdg-config-home/qt5ct;
     ".config/ctags".source = ./xdg-config-home/ctags;
     ".config/mpv" = {
       source = ./xdg-config-home/mpv;
@@ -251,8 +255,14 @@
 
   qt = {
     enable = true;
-    platformTheme = "gtk";
-    style.name = "adwaita-dark";
+    style = {
+      package = with pkgs; [
+        adwaita-qt
+        adwaita-qt6
+      ];
+      name = "adwaita-dark";
+    };
+    platformTheme = "gnome";
   };
   gtk = {
     enable = true;
@@ -570,7 +580,7 @@
             "XMODIFIERS, @im=fcitx"
             "QT_IM_MODULE, fcitx"
             "SDL_IM_MODULE, fcitx"
-            "QT_QPA_PLATFORMTHEME, qt5ct"
+            # "QT_QPA_PLATFORMTHEME, qt5ct"
             "GDK_BACKEND, wayland,x11"
             "QT_QPA_PLATFORM, wayland;xcb"
             "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
@@ -592,7 +602,7 @@
             "libinput-gestures-setup start"
             "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
             "hyprctl dispatch exec [workspace special:monitor silent] foot btop"
-            "hyprctl dispatch exec [workspace special:kdeconnect silent] kdeconnect-app"
+            # "hyprctl dispatch exec [workspace special:kdeconnect silent] kdeconnect-app"
             "hyprctl dispatch exec [workspace special:windows silent] \"virt-manager --no-fork --show-domain-console win10 -c qemu:///system\""
           ];
           monitor = [
@@ -765,10 +775,10 @@
             "Super, M, togglespecialworkspace, monitor"
             "Super, W, togglespecialworkspace, windows"
             "Super, E, togglespecialworkspace, evolution"
-            "Super, C, togglespecialworkspace, kdeconnect"
+            # "Super, C, togglespecialworkspace, kdeconnect"
             # bind = SUPER, Tab, cyclenext
-            "Super, Tab, exec, ags -b hypr -t overview"
-            "Super, Tab, bringactivetotop,   # bring it to the top"
+            # "Super, Tab, exec, ags -b hypr -t overview"
+            # "Super, Tab, bringactivetotop,   # bring it to the top"
             # Move window to workspace Control + Super + [0-9] 
             "ControlSuper, 1, movetoworkspacesilent, 1"
             "ControlSuper, 2, movetoworkspacesilent, 2"
