@@ -36,10 +36,7 @@ export default () => ShadedPopup({
                     }),
                     Widget.Button({
                         child: Widget.Label('Yes'),
-                        on_clicked: () => {
-                            App.toggleWindow('verification')
-                            Utils.exec(PowerMenu.cmd)
-                        },
+                        on_clicked: () => Utils.exec(PowerMenu.cmd),
                     }),
                 ],
             }),
