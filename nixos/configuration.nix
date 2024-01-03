@@ -11,19 +11,21 @@
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
-    outputs.nixosModules.interception-tools
+    # outputs.nixosModules.interception-tools
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
     # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
+    ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
+    #./hardware-configuration.nix
   ];
 
+  networking.proxy.default = "http://172.30.224.1:7890/";
+  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -71,6 +73,22 @@
     experimental-features = "nix-command flakes";
     # Deduplicate and optimize nix store
     auto-optimise-store = true;
+    trusted-users = [ "wenjin" ];
+    # the system-level substituers & trusted-public-keys
+    # given the users in this list the right to specify additional substituters via:
+    #    1. `nixConfig.substituers` in `flake.nix`
+    substituters = [
+      # cache mirror located in China
+      # status: https://mirror.sjtu.edu.cn/
+      "https://mirror.sjtu.edu.cn/nix-channels/store"
+      # status: https://mirrors.ustc.edu.cn/status/
+      # "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://cache.nixos.org"
+    ];
+    trusted-public-keys = [
+      # the default public key of cache.nixos.org, it's built-in, no need to add it here
+      # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    ];
   };
 
   # do garbage collection weekly to keep disk usage low
@@ -83,25 +101,6 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  networking.nftables.enable = true;
-  networking.firewall = {
-    enable = true;
-    checkReversePath = "loose";
-    trustedInterfaces = [ "tun*" ];
-    allowedTCPPorts = [ 80 443 ];
-    allowedUDPPortRanges = [
-      { from = 4000; to = 4007; }
-      { from = 8000; to = 8010; }
-    ];
-  };
-  # virtualisation
-  programs.virt-manager.enable = true;    
-  virtualisation = {
-    docker.enable = true;
-    libvirtd.enable = true;
-  };
-   
-  # Set your time zone.
   time.timeZone = "Asia/Shanghai";
    
   # Configure network proxy if necessary
@@ -115,8 +114,8 @@
   ];
   console = {
     font = "ter-i32b";
-  # keyMap = "us";
-   useXkbConfig = true; # use xkb.options in tty.
+    # keyMap = "us";
+    useXkbConfig = true; # use xkb.options in tty.
   };
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -148,8 +147,8 @@
     parted
     home-manager
     tree
-    interception-tools
   ];
+
   fonts = {
     packages = with pkgs; [
       noto-fonts
@@ -199,7 +198,6 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  programs.dconf.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -218,46 +216,12 @@
     extraPortals = [pkgs.xdg-desktop-portal-hyprland];
   };
 
-  networking.hostName = "nixos";
-
   systemd.sleep.extraConfig = ''
-    [Sleep]
-    HibernateMode=shutdown
-'';
+      [Sleep]
+      HibernateMode=shutdown
+  '';
 
-  boot = {
-    loader = {
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 10;
-        consoleMode = "keep";
-      };
-    };
-  };
   security.pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
-
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.defaultUserShell = pkgs.zsh;
-  users.users = {
-    wenjin = {
-      # You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-        "docker"
-        "audio"
-        "video"
-        "libvirtd"
-      ];
-    };
-  };
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.

@@ -1,7 +1,4 @@
 {
-  pkgs,
-  ...
-}: {
   services.interception-tools = {
     enable = true;
     plugins = [

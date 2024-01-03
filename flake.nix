@@ -24,6 +24,8 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    nixos-wsl.url = "github:/nix-community/NixOS-WSL";
+
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +40,7 @@
     # };
 
     # TODO: Add any other flake you might need
-    # hardware.url = "github:nixos/nixos-hardware";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
@@ -49,6 +51,7 @@
     self,
     nixpkgs,
     home-manager,
+    nixos-hardware,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -89,27 +92,16 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
-	  {
-            # given the users in this list the right to specify additional substituters via:
-            #    1. `nixConfig.substituers` in `flake.nix`
-            nix.settings.trusted-users = [ "wenjin" ];
- 
-            # the system-level substituers & trusted-public-keys
-            nix.settings = {
-              substituters = [
-                # cache mirror located in China
-                # status: https://mirror.sjtu.edu.cn/
-                "https://mirror.sjtu.edu.cn/nix-channels/store"
-                # status: https://mirrors.ustc.edu.cn/status/
-                # "https://mirrors.ustc.edu.cn/nix-channels/store"
-                "https://cache.nixos.org"
-              ];
-              trusted-public-keys = [
-                # the default public key of cache.nixos.org, it's built-in, no need to add it here
-                "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-              ];
-            };
-          }
+          ./nixos/hosts/nixos
+          nixos-hardware.nixosModules.lenovo-thinkpad-x1-9th-gen
+        ];
+      };
+      nixos-wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/configuration.nix
+          ./nixos/hosts/nixos-wsl
         ];
       };
     };
