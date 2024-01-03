@@ -122,9 +122,11 @@
     gnutar
     gawk
     zstd
+    scrcpy
     gnupg
     libsForQt5.qt5ct
     libsForQt5.qtstyleplugins
+    libsForQt5.kdeconnect-kde
     evolution
     evolution-data-server
     du-dust
@@ -156,6 +158,7 @@
     cliphist
     glib
     wl-clipboard
+    xdg-utils
     wl-gammactl
     gnome-extension-manager
     nautilus-open-any-terminal
@@ -534,6 +537,7 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+    vimdiffAlias = true;
 
     withRuby = true;
     withNodeJs = true;
@@ -556,10 +560,10 @@
 
 
   services = {
-    kdeconnect = {
-      enable = true;
-      indicator = true;
-    };
+    # kdeconnect = {
+    #   enable = true;
+    #   indicator = true;
+    # };
     xsettingsd = {
       enable = true;
       settings = {
@@ -602,7 +606,7 @@
             "libinput-gestures-setup start"
             "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
             "hyprctl dispatch exec [workspace special:monitor silent] foot btop"
-            # "hyprctl dispatch exec [workspace special:kdeconnect silent] kdeconnect-app"
+            "hyprctl dispatch exec [workspace special:kdeconnect silent] kdeconnect-app"
             "hyprctl dispatch exec [workspace special:windows silent] \"virt-manager --no-fork --show-domain-console win10 -c qemu:///system\""
           ];
           monitor = [
