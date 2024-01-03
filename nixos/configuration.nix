@@ -24,8 +24,6 @@
     #./hardware-configuration.nix
   ];
 
-  networking.proxy.default = "http://172.30.224.1:7890/";
-  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   nixpkgs = {
     # You can add overlays here
     overlays = [
