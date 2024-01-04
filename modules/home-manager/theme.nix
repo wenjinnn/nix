@@ -12,10 +12,6 @@
   ];
 
   services = {
-    # kdeconnect = {
-    #   enable = true;
-    #   indicator = true;
-    # };
     xsettingsd = {
       enable = true;
       settings = {
