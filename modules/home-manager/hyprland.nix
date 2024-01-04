@@ -6,6 +6,9 @@
   pkgs,
   ...
 }: {
+  imports = [
+    outputs.homeManagerModules.ags
+  ];
 
   home.packages = with pkgs; [
     (python311.withPackages (p: [ p.python-pam ]))

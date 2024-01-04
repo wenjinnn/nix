@@ -9,4 +9,7 @@
   neovim = import ./neovim.nix;
   git = import ./git.nix;
   fcitx5 = import ./fcitx5.nix;
+  theme = import ./theme.nix;
+  ags = import ./ags.nix;
+  fuzzel = import ./fuzzel.nix;
 }
