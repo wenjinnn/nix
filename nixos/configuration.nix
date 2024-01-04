@@ -12,6 +12,11 @@
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.interception-tools
+    outputs.nixosModules.fonts
+    outputs.nixosModules.xserver
+    outputs.nixosModules.gnome
+    outputs.nixosModules.hyprland
+    outputs.nixosModules.sing-box
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
@@ -116,14 +121,14 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  #services.xserver = {
-  #  layout = "us";
-  # xkbVariant = "";
-  #}
+  # services.xserver.enable = true;
+  # services.xserver = {
+  #   layout = "us";
+  #  xkbVariant = "";
+  # }
 
   # Configure keymap in X11
-  services.xserver.xkb.layout = "us";
+  # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
@@ -134,7 +139,7 @@
   hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  # services.xserver.libinput.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -147,52 +152,6 @@
     tree
   ];
 
-  fonts = {
-    packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      noto-fonts-emoji
-      sarasa-gothic
-      (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" "Mononoki" "CascadiaCode" "DejaVuSansMono"]; })
-      font-awesome
-      lexend
-      material-symbols
-    ];
-    fontDir.enable = true;
-    enableDefaultPackages = true;
-    fontconfig = {
-      enable = true;
-      defaultFonts = {
-        emoji = [ "Noto Color Emoji" ];
-        monospace = [
-          "DejaVuSansM Nerd Font Mono"
-          "Sarasa Mono SC"
-          "Noto Sans Mono CJK SC"
-        ];
-        sansSerif = [
-          "DejaVu Sans"
-          "Sarasa Sans SC"
-          "Noto Sans CJK SC"
-        ];
-        serif = [
-          "DejaVu Serif"
-          "Sarasa Serif SC"
-          "Noto Serif CJK SC"
-        ];
-      };
-    };
-  };
-  services.xserver = {
-    displayManager.gdm.enable = true;
-    desktopManager.gnome = {
-      enable = true;
-      };
-  };
-  services.sing-box = {
-    enable = true;
-  };
- 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -200,26 +159,13 @@
     enable = true;
     enableSSHSupport = true;
   };
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  security = {
-    polkit.enable = true;
-  };
   programs.kdeconnect.enable = true;
   programs.zsh.enable = true;
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-hyprland];
-  };
 
   systemd.sleep.extraConfig = ''
       [Sleep]
       HibernateMode=shutdown
   '';
-
-  security.pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
