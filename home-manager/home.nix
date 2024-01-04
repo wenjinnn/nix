@@ -27,6 +27,9 @@
     outputs.homeManagerModules.git
     outputs.homeManagerModules.fcitx5
     outputs.homeManagerModules.theme
+    outputs.homeManagerModules.ctags
+    outputs.homeManagerModules.ranger
+    outputs.homeManagerModules.mpv
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -101,7 +104,6 @@
     fzf
     socat
     lazygit
-    (mpv.override { scripts = [mpvScripts.mpris]; })
     jq
     ffmpeg
     gimp
@@ -161,15 +163,6 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     # ".config/qt5ct".source = ./xdg-config-home/qt5ct;
-    ".config/ctags".source = ./xdg-config-home/ctags;
-    ".config/mpv" = {
-      source = ./xdg-config-home/mpv;
-      recursive = true;
-    };
-    ".config/ranger" = {
-      source = ./xdg-config-home/ranger;
-      recursive = true;
-    };
     # ".config/hypr" = {
     #   source = ./xdg-config-home/hypr;
     #   recursive = true;

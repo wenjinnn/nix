@@ -12,4 +12,7 @@
   theme = import ./theme.nix;
   ags = import ./ags.nix;
   fuzzel = import ./fuzzel.nix;
+  ctags = import ./ctags.nix;
+  ranger = import ./ranger.nix;
+  mpv = import ./mpv.nix;
 }
