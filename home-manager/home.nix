@@ -731,6 +731,7 @@
             "ControlSuperShiftAlt, D, exec, systemctl poweroff"
             # Applauncher
             "Super, D, exec, ags -b hypr -t applauncher"
+            "Super, V, exec, ags -b hypr -t clipboard"
             # Snapshot
             "SuperShift, S, exec, grim -g \"$(slurp)\" - | wl-copy"
             # Swap windows

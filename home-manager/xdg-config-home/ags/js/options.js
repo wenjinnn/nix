@@ -160,6 +160,11 @@ export default {
         icon_size: Option(52),
     },
 
+    clipboard: {
+        width: Option(500),
+        height: Option(500),
+    },
+
     bar: {
         position: Option('top', {
             'enums': ['top', 'bottom'],

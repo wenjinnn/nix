@@ -11,6 +11,7 @@ import QuickSettings from './quicksettings/QuickSettings.js';
 import ScreenCorners from './screencorner/ScreenCorners.js';
 import TopBar from './bar/TopBar.js';
 import Verification from './powermenu/Verification.js';
+import Clipboard from './clipboard/Clipboard.js';
 import About from './about/about.js';
 import { init } from './settings/setup.js';
 import { forMonitors } from './utils.js';
@@ -33,6 +34,7 @@ const windows = () => [
     PowerMenu(),
     QuickSettings(),
     Verification(),
+    Clipboard(),
     About(),
 ];
 
