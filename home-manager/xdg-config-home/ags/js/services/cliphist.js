@@ -60,7 +60,10 @@ class Cliphist extends Service {
     /** @param {string} selected 
     */
     select(selected) {
-        Utils.exec(`cliphist decode <<<"${selected}" | wl-copy`);
+        Utils.execAsync(['bash', '-c', `echo '${selected}' | cliphist decode | wl-copy`])
+        .then(out => print(out))
+        .catch(err => print(err));
+
     }
 
     query(str) {
