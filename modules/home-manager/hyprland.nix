@@ -33,6 +33,7 @@
     gtklock-userinfo-module
     gtklock-powerbar-module
     gtklock-playerctl-module
+    blueberry
     cliphist
     glib
     wl-clipboard
