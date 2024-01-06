@@ -50,7 +50,7 @@ export const WifiSelection = () => Menu({
         }),
         Widget.Separator(),
         Widget.Button({
-            on_clicked: () => Applications.query('gnome-control-center')?.[0].launch(),
+            on_clicked: () => Utils.execAsync('env XDG_CURRENT_DESKTOP=gnome gnome-control-center wifi'),
             child: Widget.Box({
                 children: [
                     Widget.Icon(icons.ui.settings),

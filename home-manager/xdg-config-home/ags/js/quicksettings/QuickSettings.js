@@ -5,7 +5,7 @@ import { Volume, Microhone, SinkSelector, AppMixer } from './widgets/Volume.js';
 import { NetworkToggle, WifiSelection } from './widgets/Network.js';
 import { BluetoothToggle, BluetoothDevices } from './widgets/Bluetooth.js';
 import { ThemeToggle, ThemeSelector } from './widgets/Theme.js';
-import { ProfileToggle, ProfileSelector } from './widgets/AsusProfile.js';
+import { ProfileToggle, ProfileSelector } from './widgets/PowerProfile.js';
 import Media from './widgets/Media.js';
 import Brightness from './widgets/Brightness.js';
 import DND from './widgets/DND.js';
