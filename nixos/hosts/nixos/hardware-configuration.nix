@@ -31,6 +31,12 @@
     options = [ "subvol=swap" "noatime" ];
   };
 
+  fileSystems."/windows" = {
+      options = [ "nofail" ];
+      device = "/dev/disk/by-label/Windows";
+      fsType = "ntfs";            
+    };                             
+
   swapDevices = [ { device = "/swap/swapfile"; } ];
  
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
