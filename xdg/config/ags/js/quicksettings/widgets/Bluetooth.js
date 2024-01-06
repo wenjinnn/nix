@@ -1,5 +1,6 @@
 import Bluetooth from 'resource:///com/github/Aylur/ags/service/bluetooth.js';
 import Widget from 'resource:///com/github/Aylur/ags/widget.js';
+import * as Utils from 'resource:///com/github/Aylur/ags/utils.js';
 import icons from '../../icons.js';
 import { Menu, ArrowToggleButton } from '../ToggleButton.js';
 
@@ -63,6 +64,16 @@ export const BluetoothDevices = () => Menu({
             children: Bluetooth.bind('devices').transform(ds => ds
                 .filter(d => d.name)
                 .map(DeviceItem)),
+        }),
+        Widget.Separator(),
+        Widget.Button({
+            on_clicked: () => Utils.execAsync('blueberry'),
+            child: Widget.Box({
+                children: [
+                    Widget.Icon(icons.ui.settings),
+                    Widget.Label('BlueBerry'),
+                ],
+            }),
         }),
     ],
 });
