@@ -121,6 +121,8 @@
     zstd
     scrcpy
     gnupg
+    rustdesk
+    libreoffice
     evolution
     evolution-data-server
     du-dust
