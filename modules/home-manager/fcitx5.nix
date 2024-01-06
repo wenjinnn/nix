@@ -8,9 +8,9 @@
 }: {
 
   home.file = {
-    ".config/fcitx5".source = ../../home-manager/xdg-config-home/fcitx5;
+    ".config/fcitx5".source = ../../xdg/config/fcitx5;
     ".local/share/fcitx5" = {
-      source = ../../home-manager/xdg-data-home/fcitx5;
+      source = ../../xdg/data/fcitx5;
       recursive = true;
     };
   };

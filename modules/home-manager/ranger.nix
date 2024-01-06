@@ -12,7 +12,7 @@
   ];
   home.file = {
     ".config/ranger" = {
-      source = ../../home-manager/xdg-config-home/ranger;
+      source = ../../xdg/config/ranger;
       recursive = true;
     };
   };

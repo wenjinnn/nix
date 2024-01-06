@@ -7,6 +7,7 @@ export async function globals() {
         globalThis.app = (await import('resource:///com/github/Aylur/ags/app.js')).default;
         globalThis.audio = (await import('resource:///com/github/Aylur/ags/service/audio.js')).default;
         globalThis.recorder = (await import('../services/screenrecord.js')).default;
+        globalThis.dashboard = (await import('../dashboard/Dashboard.js')).default;
         globalThis.brightness = (await import('../services/brightness.js')).default;
         globalThis.indicator = (await import('../services/onScreenIndicator.js')).default;
 

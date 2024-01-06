@@ -11,6 +11,6 @@
     universal-ctags
   ];
   home.file = {
-    ".config/ctags".source = ../../home-manager/xdg-config-home/ctags;
+    ".config/ctags".source = ../../xdg/config/ctags;
   };
 }

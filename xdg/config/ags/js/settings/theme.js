@@ -13,9 +13,9 @@ export function setTheme(name) {
         return print('No theme named ' + name);
 
     options.apply(theme.options);
+    wallpaper();
     reloadScss();
     setupHyprland();
-    wallpaper();
 }
 
 export const WP = App.configDir + '/assets/';

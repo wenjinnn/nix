@@ -12,7 +12,7 @@
   ];
   home.file = {
     ".config/mpv" = {
-      source = ../../home-manager/xdg-config-home/mpv;
+      source = ../../xdg/config/mpv;
       recursive = true;
     };
   };

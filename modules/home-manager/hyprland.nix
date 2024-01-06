@@ -78,7 +78,7 @@
             "XCURSOR_SIZE, 24"
           ];
           exec-once = [
-            "sleep 1 && swww init && swww img ~/.config/eww/images/wallpaper --transition-fps 60 --transition-type random --transition-pos && systemctl --user start swww-next.timer &"
+            # "sleep 1 && swww init && swww img ~/.config/eww/images/wallpaper --transition-fps 60 --transition-type random --transition-pos && systemctl --user start swww-next.timer &"
             "ags -b hypr"
             "fcitx5 -d --replace"
             "gnome-keyring-daemon --start --components=secrets"
@@ -193,9 +193,9 @@
             "noinitialfocus,class:^(xwaylandvideobridge)$"
           ];
           layerrule = [
-            "blur, powermenu"
-            "blur, gtk-layer-shell"
-            "ignorezero, gtk-layer-shell"
+            # "blur, powermenu"
+            # "blur, gtk-layer-shell"
+            # "ignorezero, gtk-layer-shell"
           ];
           bind = let e = "exec, ags -b hypr"; in [
 
@@ -216,6 +216,7 @@
             # Applauncher
             "Super, D, exec, ags -b hypr -t applauncher"
             "Super, V, exec, ags -b hypr -t clipboard"
+            "Super, N, exec, ags -b hypr -t dashboard"
             # Snapshot
             "SuperShift, S, exec, grim -g \"$(slurp)\" - | wl-copy"
             # Swap windows

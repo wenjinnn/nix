@@ -13,7 +13,7 @@
   };
   home.file = {
     ".config/nvim" = {
-      source = ../../home-manager/xdg-config-home/nvim;
+      source = ../../xdg/config/nvim;
       recursive = true;
     };
   };

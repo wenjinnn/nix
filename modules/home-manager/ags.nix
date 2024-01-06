@@ -12,7 +12,7 @@
   # ags
   programs.ags = {
     enable = true;
-    configDir = ../../home-manager/xdg-config-home/ags;
+    configDir = ../../xdg/config/ags;
     extraPackages = with pkgs; [
       libgtop
       libsoup_3
