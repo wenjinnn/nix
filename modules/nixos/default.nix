@@ -14,4 +14,5 @@
   gnome = import ./gnome.nix;
   hyprland = import ./hyprland.nix;
   sing-box = import ./sing-box.nix;
+  bluetooth = import ./bluetooth.nix;
 }
