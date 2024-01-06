@@ -25,6 +25,7 @@
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     nixos-wsl.url = "github:/nix-community/NixOS-WSL";
+    nur.url = "github:nix-community/NUR";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.11";
@@ -52,6 +53,7 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
+    nur,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -94,6 +96,7 @@
           ./nixos/configuration.nix
           ./nixos/hosts/nixos
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-9th-gen
+          nur.nixosModules.nur
         ];
       };
       nixos-wsl = nixpkgs.lib.nixosSystem {
@@ -102,6 +105,7 @@
         modules = [
           ./nixos/configuration.nix
           ./nixos/hosts/nixos-wsl
+          nur.nixosModules.nur
         ];
       };
     };
@@ -115,6 +119,7 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
+          nur.hmModules.nur
         ];
       };
     };
