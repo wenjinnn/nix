@@ -8,7 +8,6 @@
 }: {
   environment.systemPackages = with pkgs; [
     quickemu
-    quickgui
   ];
   # virtualisation
   programs.virt-manager.enable = true;    
