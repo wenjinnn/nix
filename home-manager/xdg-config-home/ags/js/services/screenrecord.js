@@ -92,6 +92,7 @@ class Recorder extends Service {
             '-A', 'files=Show in Files',
             '-A', 'view=View',
             '-A', 'edit=Edit',
+            '-A', 'ocr=OCR',
             '-i', file,
             'Screenshot',
             file,
@@ -101,6 +102,9 @@ class Recorder extends Service {
 
         if (res === 'view')
             Utils.execAsync('xdg-open ' + file);
+
+        if (res === 'ocr')
+            Utils.execAsync(['bash', '-c', `tesseract "${file}" - | wl-copy`]);
 
         if (res === 'edit')
             Utils.execAsync(['swappy', '-f', file]);
