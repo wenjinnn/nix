@@ -12,7 +12,10 @@ const Applauncher = () => {
     const mkItems = () => [
         Widget.Separator({ hexpand: true }),
         ...Applications.query('').flatMap(app => Widget.Revealer({
-            setup: w => w.attribute = { app, revealer: w },
+            setup: w => {
+                w.reveal_child = true;
+                w.attribute = { app, revealer: w };
+            },
             child: Widget.Box({
                 vertical: true,
                 children: [
@@ -71,8 +74,8 @@ const Applauncher = () => {
                 entry.grab_focus();
             }
             else {
-                // items = mkItems();
-                // list.children = items;
+                items = mkItems();
+                list.children = items;
             }
         }),
     });
