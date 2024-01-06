@@ -124,8 +124,9 @@
     rustdesk
     libreoffice
     evolution
-    evolution-data-server
     du-dust
+    inotify-tools
+    libnotify
     lsof
     dbeaver
     btop
