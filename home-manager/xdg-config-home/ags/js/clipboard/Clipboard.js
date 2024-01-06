@@ -42,11 +42,11 @@ const Clipboard = () => {
             App.toggleWindow(WINDOW_NAME);
             Cliphist.select(clipItem);
         },
-        on_change: (text) => items.map(item => {
-            // if (item.attribute) {
-            //     const { app, revealer } = item.attribute;
-            //     revealer.reveal_child = app.match(text);
-            // }
+        on_change: ({ text }) => items.map(item => {
+            if (item.attribute) {
+                const { name, revealer } = item.attribute;
+                revealer.reveal_child = !text || name.includes(text);
+            }
         }),
     });
 
@@ -59,19 +59,21 @@ const Clipboard = () => {
                 child: list,
             }),
         ],
-        setup: self => self.hook(App, (_, win, visible) => {
-            if (win !== WINDOW_NAME)
-                return;
+        setup: self => {
+            self.hook(Cliphist, (history) => {
+                items = mkItems();
+                list.children = items;
+            }, 'cliphist-changed')
+            self.hook(App, (_, win, visible) => {
+                if (win !== WINDOW_NAME)
+                    return;
 
-            entry.text = '';
-            if (visible) {
-                entry.grab_focus();
-            }
-            else {
-                // items = mkItems();
-                // list.children = items;
-            }
-        }),
+                entry.text = '';
+                if (visible) {
+                    entry.grab_focus();
+                }
+            })
+        },
     });
 };
 

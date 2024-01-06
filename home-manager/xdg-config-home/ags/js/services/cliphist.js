@@ -32,14 +32,11 @@ class Cliphist extends Service {
     constructor() {
         super();
         if (dependencies(['wl-paste', 'cliphist'])) {
-            const xdgCacheHome = GLib.get_user_cache_dir()
-            this.#proc = Utils.subprocess(['bash', '-c', 'wl-paste --watch cliphist store'], (out) => {}, (err) => logError(err));
-            this.#history = Utils.exec('cliphist list').split('\n');
+            this.#proc = Utils.subprocess(['bash', '-c', 'wl-paste --watch bash -c \'cliphist store && echo "cliphist changed"\''],
+                (out) => { this.#onChange() },
+                (err) => logError(err)
+            );
             
-
-            const cliphistDb = `${xdgCacheHome}/cliphist/db`
-
-            Utils.monitorFile(cliphistDb, () => this.#onChange());
         }
         this.#onChange();
     }
