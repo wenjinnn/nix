@@ -90,6 +90,7 @@
             "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
             "hyprctl dispatch exec [workspace special:monitor silent] foot btop"
             # "hyprctl dispatch exec [workspace special:kdeconnect silent] kdeconnect-app"
+            "hyprctl dispatch exec [workspace special:evolution silent] evolution"
             "hyprctl dispatch exec [workspace special:windows silent] \"virt-manager --no-fork --show-domain-console win10 -c qemu:///system\""
           ];
           monitor = [
