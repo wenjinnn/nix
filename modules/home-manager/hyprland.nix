@@ -209,7 +209,7 @@
             "ControlSuperShiftAlt, E, exit,"
             ", XF86PowerOff, ${e} -t powermenu"
             "Super, Tab,     ${e} -t overview"
-            ", XF86Launch4,  ${e} -r 'recorder.start()'"
+            "Super,Print,  ${e} -r 'recorder.start()'"
             ",Print,         ${e} -r 'recorder.screenshot()'"
             "Shift,Print,    ${e} -r 'recorder.screenshot(true)'"
             "ControlSuperShiftAlt, L, exec, gtklock"
