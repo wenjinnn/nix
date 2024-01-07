@@ -30,6 +30,7 @@
     outputs.homeManagerModules.ctags
     outputs.homeManagerModules.ranger
     outputs.homeManagerModules.mpv
+    outputs.homeManagerModules.mime
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
