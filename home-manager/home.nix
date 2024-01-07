@@ -31,6 +31,7 @@
     outputs.homeManagerModules.ranger
     outputs.homeManagerModules.mpv
     outputs.homeManagerModules.mime
+    inputs.nur.hmModules.nur
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -46,11 +47,11 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-      (self: super: {
-        microsoft-edge = super.microsoft-edge.override {
-          commandLineArgs = electron-flags;
-        };
-      })
+      # (self: super: {
+      #   microsoft-edge = super.microsoft-edge.override {
+      #     commandLineArgs = electron-flags;
+      #   };
+      # })
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -76,6 +77,10 @@
     username = "wenjin";
     homeDirectory = "/home/wenjin";
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
@@ -149,6 +154,10 @@
     gnome.gnome-tweaks
     gnome.gnome-themes-extra
     waydroid
+    nur.repos.xddxdd.dingtalk
+    nur.repos.xddxdd.wechat-uos-bin
+    nur.repos.xddxdd.qq
+    nur.repos.linyinfeng.wemeet
   ];
 
   # xresources.properties = {

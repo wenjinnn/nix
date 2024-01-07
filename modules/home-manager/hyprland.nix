@@ -92,7 +92,7 @@
             "hyprctl dispatch exec [workspace special:monitor silent] foot btop"
             # "hyprctl dispatch exec [workspace special:kdeconnect silent] kdeconnect-app"
             "hyprctl dispatch exec [workspace special:evolution silent] evolution"
-            "hyprctl dispatch exec [workspace special:windows silent] \"virt-manager --no-fork --show-domain-console win10 -c qemu:///system\""
+            # "hyprctl dispatch exec [workspace special:windows silent] \"virt-manager --no-fork --show-domain-console win10 -c qemu:///system\""
           ];
           monitor = [
             ",highres,auto,auto"

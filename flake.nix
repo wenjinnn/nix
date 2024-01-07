@@ -96,6 +96,7 @@
           ./nixos/configuration.nix
           ./nixos/hosts/nixos
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-9th-gen
+          { nixpkgs.overlays = [ nur.overlay ]; }
           nur.nixosModules.nur
         ];
       };
@@ -119,6 +120,7 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
+          { nixpkgs.overlays = [ nur.overlay ]; }
           nur.hmModules.nur
         ];
       };
