@@ -15,4 +15,5 @@
   ctags = import ./ctags.nix;
   ranger = import ./ranger.nix;
   mpv = import ./mpv.nix;
+  mime = import ./mime.nix;
 }

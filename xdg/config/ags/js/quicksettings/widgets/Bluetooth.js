@@ -71,7 +71,7 @@ export const BluetoothDevices = () => Menu({
             child: Widget.Box({
                 children: [
                     Widget.Icon(icons.ui.settings),
-                    Widget.Label('BlueBerry'),
+                    Widget.Label('Blueberry'),
                 ],
             }),
         }),
