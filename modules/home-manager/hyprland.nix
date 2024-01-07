@@ -34,6 +34,7 @@
     gtklock-powerbar-module
     gtklock-playerctl-module
     blueberry
+    xorg.xrdb
     cliphist
     glib
     wl-clipboard
@@ -86,6 +87,7 @@
             "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
             "kdeconnect-indicator"
             "udiskie &"
+            "echo \"Xft.dpi: 192\" | xrdb -merge"
             "swayidle -w timeout 300 'gtklock -d' timeout 360 'hyprctl dispatch dpms off' after-resume 'hyprctl dispatch dpms on' before-sleep 'gtklock -d && sleep 1 && hyprctl dispatch dpms off'"
             "libinput-gestures-setup start"
             "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
