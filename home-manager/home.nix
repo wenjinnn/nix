@@ -7,15 +7,7 @@
   config,
   pkgs,
   ...
-}: 
-  let 
-    electron-flags = [
-      "--password-store=gnome-libsecret"
-      "--enable-features=UseOzonePlatform"
-      "--ozone-platform=wayland"
-      "--enable-wayland-ime"
-    ];
-  in {
+}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
