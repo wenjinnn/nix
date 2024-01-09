@@ -140,6 +140,7 @@
     zip
     unzip
     glib
+    killall
     nautilus-open-any-terminal
     gnome.nautilus
     gnome.nautilus-python
