@@ -9,6 +9,8 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    JAVA_8_HOME = "${pkgs.jdk8}/lib/openjdk";
+    JAVA_21_HOME = "${pkgs.jdk21}/lib/openjdk";
     # GTK_THEME = "Adwaita-dark";
   };
   home.file = {

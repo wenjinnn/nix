@@ -142,6 +142,7 @@
     glib
     killall
     nautilus-open-any-terminal
+    jdk21
     gnome.nautilus
     gnome.nautilus-python
     gnome.gnome-tweaks

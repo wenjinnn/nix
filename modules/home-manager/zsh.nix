@@ -52,7 +52,7 @@
         file = ".p10k.zsh";
       }
     ];
-    initExtra = ''
+    initExtraFirst = ''
       export LANG=en_US.UTF-8
       if [[ -n "''${IS_NVIM_DAP_TOGGLETERM}" ]]; then
           return
@@ -61,6 +61,8 @@
       if [ -x "$(command -v tmux)" ] && [ -n "''${DISPLAY}" ] && [ "''${TERM_PROGRAM}" != "vscode" ] && [ "''${XDG_SESSION_DESKTOP}" != "hyprland" ] && [ -z "''${TMUX}" ]; then
           tmux attach || tmux >/dev/null 2>&1
       fi
+      '';
+    initExtra = ''
       COMPLETION_WAITING_DOTS="true"
       bindkey '^ ' autosuggest-accept
       PROXY_ENV=(http_proxy ftp_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY FTP_PROXY ALL_PROXY)
