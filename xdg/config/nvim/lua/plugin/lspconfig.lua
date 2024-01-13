@@ -33,19 +33,18 @@ return {
     'neovim/nvim-lspconfig',
     cond = not vim.g.vscode,
     dependencies = {
-      { 'williamboman/mason.nvim', config = function ()
-        require("mason").setup({
-          registries = {
-            'github:nvim-java/mason-registry',
-            'github:mason-org/mason-registry',
-          },
-        })
-      end },
+      { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
       { 'b0o/SchemaStore.nvim' },
     },
     config = function()
-      require('mason').setup()
+      require('mason').setup({
+        PATH = 'append',
+        registries = {
+          'github:nvim-java/mason-registry',
+          'github:mason-org/mason-registry',
+        },
+      })
       local installed_pkgs = require('mason-registry').get_installed_packages()
       local install_confirm = ''
       if #installed_pkgs == 0 then
