@@ -9,21 +9,21 @@
   ...
 }: {
   # You can import other home-manager modules here
-  imports = [
+  imports = with outputs.homeManagerModules; [
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
-    outputs.homeManagerModules.hyprland
-    outputs.homeManagerModules.zsh
-    outputs.homeManagerModules.foot
-    outputs.homeManagerModules.neovim
-    outputs.homeManagerModules.git
-    outputs.homeManagerModules.fcitx5
-    outputs.homeManagerModules.theme
-    outputs.homeManagerModules.ctags
-    outputs.homeManagerModules.ranger
-    outputs.homeManagerModules.mpv
-    outputs.homeManagerModules.mime
-    inputs.nur.hmModules.nur
+    hyprland
+    zsh
+    foot
+    neovim
+    git
+    fcitx5
+    theme
+    ctags
+    ranger
+    mpv
+    mime
+    git-sync
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default

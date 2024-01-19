@@ -16,4 +16,5 @@
   ranger = import ./ranger.nix;
   mpv = import ./mpv.nix;
   mime = import ./mime.nix;
+  git-sync = import ./git-sync.nix;
 }
