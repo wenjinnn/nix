@@ -76,7 +76,7 @@ return {
         preset = {
           output = {
             floating = {
-              border = 'none'
+              border = { '', '', '', ' ', '', '', '', ' ' }
             }
           }
         }

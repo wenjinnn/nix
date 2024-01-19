@@ -20,6 +20,7 @@ return {
           TelescopePreviewTitle = { link = 'lualine_a_normal' },
           ['@interface'] = { link = '@constant' },
           ['@lsp.type.interface'] = { link = '@interface' },
+          FloatBorder = { link = 'Pmenu' },
           CmpItemMenu = { link = 'Comment' },
         }
       })

@@ -9,7 +9,10 @@ return {
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'nvim-telescope/telescope-live-grep-args.nvim' },
-    { 'nvim-telescope/telescope-file-browser.nvim' },
+    {
+      'nvim-telescope/telescope-file-browser.nvim',
+      branch = 'feat/tree'
+    },
   },
   config = function()
     local function flash(prompt_bufnr)
@@ -122,7 +125,8 @@ return {
           select_buffer = true,
           grouped = true,
           auto_depth = true,
-          cwd_to_path = true,
+          initial_browser = "tree",
+          follow = true,
           path = '%:p:h',
           prompt_path = true,
           hijack_netrw = true,
@@ -148,5 +152,5 @@ return {
     require('telescope').load_extension('ui-select')
     require('telescope').load_extension('live_grep_args')
     require('telescope').load_extension('file_browser')
-  end
+  end,
 }
