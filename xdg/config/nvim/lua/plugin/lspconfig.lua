@@ -172,7 +172,7 @@ return {
           end
           require 'lspconfig'.lemminx.setup {
             cmd = {
-              '/usr/lib/jvm/java-17-openjdk/bin/java',
+              'java',
               -- 'lemminx',
               '-cp',
               vim.fn.join(lemminx_jars, ':'),

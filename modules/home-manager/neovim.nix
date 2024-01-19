@@ -14,6 +14,21 @@
     # GTK_THEME = "Adwaita-dark";
   };
   home.file = {
+    ".m2/toolchains.xml".text = ''
+      <?xml version="1.0" encoding="UTF-8"?>
+      <toolchains>
+        <!-- JDK toolchains -->
+        <toolchain>
+          <type>jdk</type>
+          <provides>
+            <version>8</version>
+          </provides>
+          <configuration>
+            <jdkHome>${pkgs.jdk8}/lib/openjdk</jdkHome>
+          </configuration>
+        </toolchain>
+      </toolchains>
+    '';
     ".config/nvim" = {
       source = ../../xdg/config/nvim;
       recursive = true;
