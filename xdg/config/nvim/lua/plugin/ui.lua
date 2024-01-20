@@ -224,4 +224,9 @@ return {
     'HiPhish/rainbow-delimiters.nvim',
     cond = not vim.g.vscode
   },
+  {
+    'echasnovski/mini.indentscope', config = function ()
+      require('mini.indentscope').setup()
+    end
+  }
 }
