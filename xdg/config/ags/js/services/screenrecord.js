@@ -21,7 +21,7 @@ class Recorder extends Service {
     recording = false;
     timer = 0;
 
-    async start() {
+    async start(audio = false) {
         if (!dependencies(['slurp', 'wf-recorder']))
             return;
 
@@ -31,7 +31,11 @@ class Recorder extends Service {
         const area = await Utils.execAsync('slurp');
         Utils.ensureDirectory(this.#path);
         this.#file = `${this.#path}/${now()}.mp4`;
-        Utils.execAsync(['wf-recorder', '-g', area, '-f', this.#file]);
+        let command = ['wf-recorder', '-g', area, '-f', this.#file]
+        if (audio) {
+            command.push('--audio')
+        }
+        Utils.execAsync(command);
         this.recording = true;
         this.changed('recording');
 
