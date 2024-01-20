@@ -122,6 +122,7 @@ return {
           'rnvimr',
           'toggleterm',
           'minifiles',
+          'minifiles-help',
           'dap-repl',
           'dap-float',
           'Term',
