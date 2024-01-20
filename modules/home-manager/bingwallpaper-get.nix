@@ -15,7 +15,7 @@
         Service = {
           Type = "oneshot";
           Environment = "HOME=${config.home.homeDirectory}";
-          ExecStart = "${pkgs.bingwallpaper-get}/bin/bingwallpaper-get";
+          ExecStart = "${pkgs.bingwallpaper-get}/bin/bingwallpaper-get && ${pkgs.swww-switch}/bin/swww-switch 0";
         };
         Install = {
           WantedBy = [ "default.target" ];
