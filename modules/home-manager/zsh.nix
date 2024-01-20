@@ -48,7 +48,7 @@
       }
       {
         name = "powerlevel10k-config";
-        src = ../../home-manager/dotfiles;
+        src = ../../xdg/dotfiles;
         file = ".p10k.zsh";
       }
     ];
