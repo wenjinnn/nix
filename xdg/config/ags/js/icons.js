@@ -88,6 +88,7 @@ export default {
         next: '󰒭',
     },
     ui: {
+        colorpicker: 'color-select-symbolic',
         close: 'window-close-symbolic',
         info: 'info-symbolic',
         menu: 'open-menu-symbolic',
