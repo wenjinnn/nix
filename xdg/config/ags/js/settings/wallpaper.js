@@ -15,9 +15,7 @@ export function wallpaper() {
         return;
 
     execAsync([
-        'swww', 'img',
-        '--transition-type', 'grow',
-        '--transition-pos', exec('hyprctl cursorpos').replace(' ', ''),
-        options.desktop.wallpaper.img.value,
+        'systemctl', '--user',
+        'start', 'swww-switch.timer'
     ]).catch(err => console.error(err));
 }
