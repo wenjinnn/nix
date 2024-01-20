@@ -6,11 +6,10 @@ bing_img_params='format=js&idx=0&n=8&mbl=1&mkt=zh-HK'
 bing_img_headers='Accept: application/json'
 resolution='UHD'
 file_type='.jpg'
-home="$HOME"
-bing_wallpaper_dir="${home}/Pictures/BingWallpaper/"
+bing_wallpaper_dir="$HOME/Pictures/BingWallpaper/"
 
-todaystr=$(date +'%Y%m%d')
-exist_file_re="${bing_wallpaper_dir}${todaystr}*${resolution}${file_type}"
+datestr=$(date +'%Y%m%d')
+exist_file_re="${bing_wallpaper_dir}${datestr}*${resolution}${file_type}"
 exist_file=($exist_file_re)
 if [[ -f "${exist_file}" ]]; then
     echo 'Bing wallpaper exist, abort'
@@ -29,8 +28,8 @@ if [[ $? -eq 0 ]]; then
     file_name="${bing_wallpaper_dir}${startdate}-${file_prefix}"
 
     if [[ -e ${file_name} ]]; then
-        echo 'Today pic exist, abort'
-        exit 1
+        echo 'Today wallpaper exist, abort'
+        exit 0
     fi
 
     echo "Bing wallpaper prepare download from ${img_url} to ${file_name}"

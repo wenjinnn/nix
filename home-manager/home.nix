@@ -24,6 +24,8 @@
     mpv
     mime
     git-sync
+    bingwallpaper-get
+    swww-switch
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -39,11 +41,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-      # (self: super: {
-      #   microsoft-edge = super.microsoft-edge.override {
-      #     commandLineArgs = electron-flags;
-      #   };
-      # })
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
