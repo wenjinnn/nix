@@ -121,6 +121,7 @@ return {
           'TelescopePrompt',
           'rnvimr',
           'toggleterm',
+          'minifiles',
           'dap-repl',
           'dap-float',
           'Term',
