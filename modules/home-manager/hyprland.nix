@@ -50,6 +50,15 @@
     categories = [ "X-Preferences" ];
     terminal = false;
   };
+  xdg.desktopEntries.dbeaver = {
+    name = "DBeaver";
+    comment = "SQL Integrated Development Environment";
+    icon = "dbeaver";
+    exec = "env GDK_BACKEND=x11 ${pkgs.dbeaver}/bin/dbeaver";
+    categories = [ "Development" ];
+    type = "Application";
+    genericName = "SQL Integrated Development Environment";
+  };
   home.file = {
     ".config/gtklock/config.ini".text = ''
       [main]
