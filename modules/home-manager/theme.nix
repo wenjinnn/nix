@@ -8,7 +8,6 @@
 }: {
   home.packages = with pkgs; [
     adw-gtk3
-    qogir-icon-theme
   ];
 
   services = {
