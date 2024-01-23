@@ -1,11 +1,7 @@
 return {
   -- buffer | statusline | icon | treeview | startup buffer
-  {
-    'goolord/alpha-nvim',
-    cond = not vim.g.vscode,
-    config = function()
-      require 'alpha'.setup(require 'alpha.themes.theta'
-        .config)
+  { 'echasnovski/mini.starter', config = function()
+      require('mini.starter').setup()
     end
   },
   { 'kyazdani42/nvim-web-devicons' },
