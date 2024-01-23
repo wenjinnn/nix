@@ -165,21 +165,21 @@ return {
             root_dir = require('lspconfig.util').find_git_ancestor
           }
         end,
-        ['lemminx'] = function()
-          local lemminx_jars = {}
-          for _, bundle in ipairs(vim.split(vim.fn.glob('/home/hewenjin/.lemminx/' .. '/*.jar'), '\n')) do
-            table.insert(lemminx_jars, bundle)
-          end
-          require 'lspconfig'.lemminx.setup {
-            cmd = {
-              'java',
-              -- 'lemminx',
-              '-cp',
-              vim.fn.join(lemminx_jars, ':'),
-              'org.eclipse.lemminx.XMLServerLauncher'
-            }
-          }
-        end
+        -- ['lemminx'] = function()
+        --   local lemminx_jars = {}
+        --   for _, bundle in ipairs(vim.split(vim.fn.glob('/home/hewenjin/.lemminx/' .. '/*.jar'), '\n')) do
+        --     table.insert(lemminx_jars, bundle)
+        --   end
+        --   require 'lspconfig'.lemminx.setup {
+        --     cmd = {
+        --       'java',
+        --       -- 'lemminx',
+        --       '-cp',
+        --       vim.fn.join(lemminx_jars, ':'),
+        --       'org.eclipse.lemminx.XMLServerLauncher'
+        --     }
+        --   }
+        -- end
       })
     end
   },
