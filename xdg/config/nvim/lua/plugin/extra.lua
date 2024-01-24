@@ -110,26 +110,10 @@ return {
       }, { prefix = '<leader>' })
     end
   },
-  {
-    'rmagatti/auto-session',
-    cond = not vim.g.vscode,
-    config = function()
-      local function shutdown_term()
-        local terms = require('toggleterm.terminal')
-        local terminals = terms.get_all()
-        for _, terminal in pairs(terminals) do
-          terminal:shutdown()
-        end
-      end
-      require('auto-session').setup({
-        bypass_session_save_file_types = { 'alpha', 'dashboard', 'lazy', 'mason' },
-        auto_session_suppress_dirs = { '~/', '/', '~/Desktop/', '~/Music/', '~/Public/', '~/Videos/', '~/Pictures/',
-          '~/project/', '~/Documents/', '~/Downloads/', '~/Templates/' },
-        auto_restore_enabled = true,
-        auto_save_enabled = true,
-        auto_session_use_git_branch = true,
-        pre_save_cmds = { shutdown_term }
-      })
-    end
-  }
+  { 'echasnovski/mini.sessions', version = '*', config = function ()
+    require('mini.sessions').setup({
+      -- Whether to read latest session if Neovim opened without file arguments
+      autoread = false,
+    })
+  end },
 }
