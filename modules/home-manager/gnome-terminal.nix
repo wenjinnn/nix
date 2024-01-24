@@ -6,6 +6,9 @@
       visibleName = "wenjin";
       font = "monospace 11";
       default = true;
+      allowBold = true;
+      boldIsBright = true;
+      transparencyPercent = 90;
       showScrollbar = false;
     };
   };
