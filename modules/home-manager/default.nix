@@ -19,4 +19,5 @@
   git-sync = import ./git-sync.nix;
   bingwallpaper-get = import ./bingwallpaper-get.nix;
   swww-switch = import ./swww-switch.nix;
+  gnome-terminal = import ./gnome-terminal.nix;
 }

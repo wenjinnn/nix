@@ -14,7 +14,6 @@
     # outputs.homeManagerModules.example
     hyprland
     zsh
-    foot
     neovim
     git
     fcitx5
@@ -26,6 +25,7 @@
     git-sync
     bingwallpaper-get
     swww-switch
+    gnome-terminal
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default

@@ -55,9 +55,5 @@
       name = "Adwaita";
     };
 
-    font = {
-      name = "Sans";
-      size = 11;
-    };
   };
 }
