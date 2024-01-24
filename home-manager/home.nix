@@ -144,7 +144,6 @@
     gnome.nautilus-python
     gnome.gnome-tweaks
     gnome.gnome-themes-extra
-    lua-language-server
     waydroid
     nur.repos.xddxdd.dingtalk
     nur.repos.xddxdd.wechat-uos-bin

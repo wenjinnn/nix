@@ -7,6 +7,11 @@
   ...
 }: {
 
+  home.packages = with pkgs; [
+    lua-language-server
+    lemminx
+  ];
+
   home.sessionVariables = {
     EDITOR = "nvim";
     JAVA_8_HOME = "${pkgs.jdk8}/lib/openjdk";
