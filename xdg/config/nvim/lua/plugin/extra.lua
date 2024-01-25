@@ -110,10 +110,24 @@ return {
       }, { prefix = '<leader>' })
     end
   },
+  { 'echasnovski/mini.bufremove', version = '*' , config = function()
+    require('mini.bufremove').setup()
+  end },
   { 'echasnovski/mini.sessions', version = '*', config = function ()
+    local function shutdown_term()
+      local terms = require('toggleterm.terminal')
+      local terminals = terms.get_all()
+      for _, terminal in pairs(terminals) do
+        terminal:shutdown()
+      end
+    end
     require('mini.sessions').setup({
-      -- Whether to read latest session if Neovim opened without file arguments
-      autoread = false,
+      hooks = {
+        -- Before successful action
+        pre = { read = nil, write = shutdown_term, delete = nil },
+        -- After successful action
+        post = { read = nil, write = nil, delete = nil },
+      },
     })
   end },
 }
