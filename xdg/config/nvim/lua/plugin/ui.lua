@@ -1,6 +1,6 @@
 return {
   -- buffer | statusline | icon | treeview | startup buffer
-  { 'echasnovski/mini.starter', config = function()
+  { 'echasnovski/mini.starter', cond = not vim.g.vscode, config = function()
       require('mini.starter').setup()
     end
   },
@@ -222,7 +222,7 @@ return {
     cond = not vim.g.vscode
   },
   {
-    'echasnovski/mini.indentscope', config = function ()
+    'echasnovski/mini.indentscope', cond = not vim.g.vscode, config = function ()
       require('mini.indentscope').setup()
     end
   }

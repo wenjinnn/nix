@@ -113,7 +113,7 @@ return {
   { 'echasnovski/mini.bufremove', version = '*' , config = function()
     require('mini.bufremove').setup()
   end },
-  { 'echasnovski/mini.sessions', version = '*', config = function ()
+  { 'echasnovski/mini.sessions', cond = not vim.g.vscode, version = '*', config = function ()
     local function shutdown_term()
       local terms = require('toggleterm.terminal')
       local terminals = terms.get_all()
