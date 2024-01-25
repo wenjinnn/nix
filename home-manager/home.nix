@@ -26,6 +26,7 @@
     bingwallpaper-get
     swww-switch
     gnome-terminal
+    tmux
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default

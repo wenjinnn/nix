@@ -62,13 +62,13 @@
           tmux attach || tmux >/dev/null 2>&1
       fi
       '';
-    initExtra = ''
+    initExtra = let proxyAddr = "http://127.0.0.1:7890"; in ''
       COMPLETION_WAITING_DOTS="true"
       bindkey '^ ' autosuggest-accept
       PROXY_ENV=(http_proxy ftp_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY FTP_PROXY ALL_PROXY)
       NO_PROXY_ENV=(no_proxy NO_PROXY)
-      proxy_value=http://127.0.0.1:7890
-      no_proxy_value=localhost,127.0.0.1,localaddress,.localdomain.com,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.49.2/24
+      proxy_addr=${proxyAddr}
+      no_proxy_addr=localhost,127.0.0.1,localaddress,.localdomain.com,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24,192.168.49.2/24
 
       proxyIsSet(){
           for envar in $PROXY_ENV
@@ -92,10 +92,10 @@
              export $envar=$2
           done
           echo "set all proxy env done"
-          echo "proxy value is:"
-          echo ''${proxy_value}
-          echo "no proxy value is:"
-          echo ''${no_proxy_value}
+          echo "proxy addr is:"
+          echo ''${proxy_addr}
+          echo "no proxy addr is:"
+          echo ''${no_proxy_addr}
       }
 
       clrProxy(){
@@ -114,8 +114,8 @@
           else
               # user=YourUserName
               # read -p "Password: " -s pass &&  echo -e " "
-              # proxy_value="http://$user:$pass@ProxyServerAddress:Port"
-              assignProxy $proxy_value $no_proxy_value
+              # proxy_addr="http://$user:$pass@ProxyServerAddress:Port"
+              assignProxy $proxy_addr $no_proxy_addr
           fi
       }
 
