@@ -13,6 +13,7 @@ return {
           TelescopeResultsTitle = { link = 'lualine_a_normal' },
           TelescopePreviewTitle = { link = 'lualine_a_normal' },
           NormalFloat = { link = 'Normal' },
+          WhichKeyFloat = { link = 'Pmenu' },
           ['@interface'] = { link = '@constant' },
           ['@lsp.type.interface'] = { link = '@interface' },
           CmpItemMenu = { link = 'Comment' },
