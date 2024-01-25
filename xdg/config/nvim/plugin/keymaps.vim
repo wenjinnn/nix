@@ -237,7 +237,7 @@ nnoremap <silent> <leader>l <cmd>Lazy<CR>
 nnoremap <silent> <leader>L <cmd>Mason<CR>
 
 " session
-nnoremap <silent> <leader>sw <cmd>:lua MiniSessions.write((vim.fn.getcwd():gsub('/', '-')))<CR>
+nnoremap <silent> <leader>sw <cmd>:lua MiniSessions.write((vim.fn.getcwd():gsub('/', '_')))<CR>
 nnoremap <silent> <leader>ss <cmd>:lua MiniSessions.select()<CR>
 nnoremap <silent> <leader>sd <cmd>:lua MiniSessions.delete((vim.fn.getcwd():gsub('/', '_')))<CR>
 

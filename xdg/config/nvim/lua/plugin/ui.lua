@@ -149,7 +149,7 @@ return {
     end
   },
   {
-    'akinsho/nvim-toggleterm.lua',
+    'akinsho/toggleterm.nvim',
     cond = not vim.g.vscode,
     config = function()
       local get_height = function()
@@ -164,7 +164,7 @@ return {
         open_mapping = [[<c-\><c-\>]],
         hide_numbers = true,      -- hide the number column in toggleterm buffers
         shade_terminals = true,
-        shading_factor = 1,       -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+        -- shading_factor = 1,       -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
         start_in_insert = true,
         insert_mappings = true,   -- whether or not the open mapping applies in insert mode
         autochdir = true,         -- when neovim changes it current directory the terminal will change it's own when next it's opened
