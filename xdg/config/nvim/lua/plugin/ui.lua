@@ -174,7 +174,6 @@ return {
         close_on_exit = true, -- close the terminal window when the process exits
         shell = vim.o.shell,  -- change the default shell
         float_opts = {
-          border = 'none',
           width = get_width,
           height = get_height
         },
@@ -223,7 +222,11 @@ return {
   },
   {
     'echasnovski/mini.indentscope', cond = not vim.g.vscode, config = function ()
-      require('mini.indentscope').setup()
+      require('mini.indentscope').setup({
+        draw = {
+          animation = require('mini.indentscope').gen_animation.none()
+        }
+      })
     end
-  }
+  },
 }

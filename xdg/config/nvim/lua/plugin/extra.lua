@@ -11,7 +11,6 @@ return {
     config = function()
       local config = {
         org_agenda_files = { '~/project/my/archive/org/*' },
-        win_border = 'none',
         notifications = {
           enabled = true,
         }
@@ -73,13 +72,6 @@ return {
         default = {
           command = default_command
         },
-        preset = {
-          output = {
-            floating = {
-              border = { '', '', '', ' ', '', '', '', ' ' }
-            }
-          }
-        }
       })
     end
   },
