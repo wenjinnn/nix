@@ -122,6 +122,8 @@ return {
       end
     end
     require('mini.sessions').setup({
+      directory = vim.fn.stdpath('state') .. '/sessions/',
+      file = 'session.vim',
       hooks = {
         -- Before successful action
         pre = { read = nil, write = shutdown_term, delete = nil },

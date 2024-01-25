@@ -14,7 +14,7 @@ nnoremap <silent><leader>b <cmd>exe "LualineBuffersJump!" . v:count1<CR>
 nnoremap <silent><c-j> <cmd>exe "LualineBuffersJump!" . v:count1<CR>
 nnoremap <silent><leader>B <cmd>LualineBuffersJump $<CR>
 nnoremap <silent><leader>S <cmd>windo set scrollbind!<CR>
-nnoremap <silent><leader>x <cmd>BufferDelete<CR>
+nnoremap <silent><leader>x <cmd>lua MiniBufremove.delete()<CR>
 nnoremap <silent><leader>X <cmd>only<CR>
 " nnoremap <silent><leader>a <cmd>Alpha<CR>
 nnoremap <silent><leader><leader>b <c-^>
@@ -75,7 +75,6 @@ nnoremap <leader>fwS <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <leader>fwr <cmd>Telescope lsp_references show_line=false<cr>
 " telescope extensions
 nnoremap <leader>fp <cmd>Telescope projects<cr>
-nnoremap <leader>fsl <cmd>Telescope session-lens search_session<CR>
 
 " lsp
 nnoremap <leader>P <cmd>lua print(require('lsp-status').status())<CR>
@@ -237,10 +236,10 @@ nnoremap <silent> <leader>u <cmd>Lazy update<CR>
 nnoremap <silent> <leader>l <cmd>Lazy<CR>
 nnoremap <silent> <leader>L <cmd>Mason<CR>
 
-" auto session
-nnoremap <silent> <leader>ss <cmd>SessionSave<CR>
-nnoremap <silent> <leader>sr <cmd>SessionRestore<CR>
-nnoremap <silent> <leader>sd <cmd>SessionDelete<CR>
+" session
+nnoremap <silent> <leader>sw <cmd>:lua MiniSessions.write((vim.fn.getcwd():gsub('/', '-')))<CR>
+nnoremap <silent> <leader>ss <cmd>:lua MiniSessions.select()<CR>
+nnoremap <silent> <leader>sd <cmd>:lua MiniSessions.delete((vim.fn.getcwd():gsub('/', '_')))<CR>
 
 " gitsigns
 " Navigation
