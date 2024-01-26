@@ -25,7 +25,7 @@
     git-sync
     bingwallpaper-get
     swww-switch
-    gnome-terminal
+    foot
     tmux
 
     # Or modules exported from other flakes (such as nix-colors):
