@@ -27,7 +27,7 @@ if [[ $? -eq 0 ]]; then
     file_prefix=$(echo "${img_url}" | sed 's/^.*[\\\/]//;s/th?id=OHR.//')
     file_name="${bing_wallpaper_dir}${startdate}-${file_prefix}"
 
-    if [[ -e ${file_name} ]]; then
+    if [[ -f ${file_name} ]]; then
         echo 'Today wallpaper exist, abort'
         exit 1
     fi
