@@ -6,7 +6,7 @@
     settings = {
       main = {
         term = "xterm-256color";
-        font = "FiraCode Nerd Font Mono:size=12";
+        font = "monospace:size=12";
         letter-spacing=0;
         dpi-aware="no";
         bold-text-in-bright="no";
