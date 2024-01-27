@@ -2,6 +2,7 @@ import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 import Battery from 'resource:///com/github/Aylur/ags/service/battery.js';
 import PowerMenu from '../../services/powermenu.js';
 import Lockscreen from '../../services/lockscreen.js';
+import * as Utils from 'resource:///com/github/Aylur/ags/utils.js';
 import Avatar from '../../misc/Avatar.js';
 import icons from '../../icons.js';
 import { openSettings } from '../../settings/theme.js';
@@ -32,7 +33,7 @@ export default () => Widget.Box({
                     child: Widget.Icon(icons.ui.settings),
                 }),
                 Widget.Button({
-                    on_clicked: () => Lockscreen.lockscreen(),
+                    on_clicked: () => Utils.execAsync(['swaylock']),
                     child: Widget.Icon(icons.lock),
                 }),
                 Widget.Button({

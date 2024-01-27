@@ -29,7 +29,7 @@ if [[ $? -eq 0 ]]; then
 
     if [[ -f ${file_name} ]]; then
         echo 'Today wallpaper exist, abort'
-        exit 1
+        exit 0
     fi
 
     echo "Bing wallpaper prepare download from ${img_url} to ${file_name}"
