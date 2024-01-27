@@ -17,7 +17,7 @@
     enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-hyprland];
   };
-  security.pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
+  # security.pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
   security.pam.services.swaylock = {};
 
 }

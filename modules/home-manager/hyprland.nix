@@ -29,10 +29,10 @@
     udiskie
     swww
     nwg-look
-    gtklock
-    gtklock-userinfo-module
-    gtklock-powerbar-module
-    gtklock-playerctl-module
+    # gtklock
+    # gtklock-userinfo-module
+    # gtklock-powerbar-module
+    # gtklock-playerctl-module
     blueberry
     xorg.xrdb
     cliphist
@@ -60,12 +60,12 @@
     genericName = "SQL Integrated Development Environment";
   };
   home.file = {
-    ".config/gtklock/config.ini".text = ''
-      [main]
-      gtk-theme=adw-gtk3-dark
-      modules=${pkgs.gtklock-powerbar-module}/lib/gtklock/powerbar-module.so;${pkgs.gtklock-playerctl-module}/lib/gtklock/playerctl-module.so;${pkgs.gtklock-userinfo-module}/lib/gtklock/userinfo-module.so
-      time-format=%T
-    '';
+    # ".config/gtklock/config.ini".text = ''
+    #   [main]
+    #   gtk-theme=adw-gtk3-dark
+    #   modules=${pkgs.gtklock-powerbar-module}/lib/gtklock/powerbar-module.so;${pkgs.gtklock-playerctl-module}/lib/gtklock/playerctl-module.so;${pkgs.gtklock-userinfo-module}/lib/gtklock/userinfo-module.so
+    #   time-format=%T
+    # '';
   };
 
   programs.swaylock = {
@@ -124,7 +124,7 @@
             "kdeconnect-indicator"
             "udiskie &"
             "echo \"Xft.dpi: 192\" | xrdb -merge"
-            "swayidle -w timeout 300 'gtklock -d' timeout 360 'hyprctl dispatch dpms off' after-resume 'hyprctl dispatch dpms on' before-sleep 'gtklock -d && sleep 1 && hyprctl dispatch dpms off'"
+            "swayidle -w timeout 300 'swaylock' timeout 360 'hyprctl dispatch dpms off' after-resume 'hyprctl dispatch dpms on' before-sleep 'swaylock && sleep 1 && hyprctl dispatch dpms off'"
             "libinput-gestures-setup start"
             "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
             "hyprctl dispatch exec [workspace special:monitor silent] foot btop"
@@ -251,7 +251,7 @@
             "ControlSuper,Print,  ${e} -r 'recorder.start(true)'"
             ",Print,         ${e} -r 'recorder.screenshot()'"
             "Shift,Print,    ${e} -r 'recorder.screenshot(true)'"
-            "ControlSuperShiftAlt, L, exec, gtklock"
+            "ControlSuperShiftAlt, L, exec, swaylock"
             "ControlSuperShiftAlt, D, exec, systemctl poweroff"
             # Applauncher
             "Super, D, exec, ags -b hypr -t applauncher"
