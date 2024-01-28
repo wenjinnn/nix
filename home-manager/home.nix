@@ -149,6 +149,10 @@
     bottles
     telegram-desktop
     discord
+    k9s
+    minikube
+    kubernetes
+    kubectl
     nur.repos.xddxdd.dingtalk
     nur.repos.xddxdd.wechat-uos-bin
     nur.repos.xddxdd.qq
