@@ -29,7 +29,7 @@
           Description = "Download bing wallpaper timer";
         };
         Timer = {
-          OnCalendar = "daily";
+          OnCalendar = "hourly";
         };
         Install = { WantedBy = [ "timers.target" ]; };
       };

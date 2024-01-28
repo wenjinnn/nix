@@ -12,10 +12,11 @@ datestr=$(date +'%Y%m%d')
 exist_file_re="${bing_wallpaper_dir}${datestr}*${resolution}${file_type}"
 exist_file=($exist_file_re)
 if [[ -f "${exist_file}" ]]; then
-    echo 'Bing wallpaper exist, abort'
-    exit 1
+    echo 'Today wallpaper exist, abort'
+    exit 0
 fi
 
+echo "starting query ${datestr} wallpaper"
 response=$(wget -qO- "${bing_img_url}?${bing_img_params}" --header="${bing_img_headers}")
 
 if [[ $? -eq 0 ]]; then
@@ -28,7 +29,7 @@ if [[ $? -eq 0 ]]; then
     file_name="${bing_wallpaper_dir}${startdate}-${file_prefix}"
 
     if [[ -f ${file_name} ]]; then
-        echo 'Today wallpaper exist, abort'
+        echo "${file_name} wallpaper exist, abort"
         exit 0
     fi
 
