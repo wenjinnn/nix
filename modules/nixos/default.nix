@@ -7,6 +7,7 @@
   firewall = import ./firewall.nix;
   virt = import ./virt.nix;
   docker = import ./docker.nix;
+  podman = import ./podman.nix;
   systemd-boot = import ./systemd-boot.nix;
   wsl = import ./wsl.nix;
   fonts = import ./fonts.nix;
