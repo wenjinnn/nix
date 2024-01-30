@@ -35,7 +35,7 @@ if [[ $? -eq 0 ]]; then
 
     echo "Bing wallpaper prepare download from ${img_url} to ${file_name}"
     mkdir -p "${bing_wallpaper_dir}"
-    wget -O "${file_name}" "${img_url}" -q --read-timeout=0.1
+    wget -O "${file_name}" "${img_url}" -q --read-timeout=10
     echo 'Download success'
     exit 0
 else
