@@ -14,7 +14,6 @@
     outputs.nixosModules.interception-tools
     outputs.nixosModules.firewall
     outputs.nixosModules.virt
-    outputs.nixosModules.podman
     outputs.nixosModules.systemd-boot
 
     # Or modules from other flakes (such as nixos-hardware):

@@ -16,6 +16,7 @@
     outputs.nixosModules.xserver
     outputs.nixosModules.gnome
     outputs.nixosModules.hyprland
+    outputs.nixosModules.podman
     outputs.nixosModules.sing-box
     outputs.nixosModules.bluetooth
 
