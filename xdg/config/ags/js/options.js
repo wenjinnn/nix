@@ -226,7 +226,6 @@ export default {
                 'foot',
                 'org.gnome.Nautilus',
                 'org.gnome.Calendar',
-                'org.gnome.Evolution',
                 'com.usebottles.bottles',
             ], { 'scss': 'exclude' }),
         },
