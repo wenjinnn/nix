@@ -251,6 +251,11 @@
             "ControlSuper,Print,  ${e} -r 'recorder.start(true)'"
             ",Print,         ${e} -r 'recorder.screenshot()'"
             "Shift,Print,    ${e} -r 'recorder.screenshot(true)'"
+            "ControlShiftSuper, P,    ${e} -r 'mpris?.playPause()'"
+            "ControlAltSuper, P,    ${e} -r 'mpris?.stop()'"
+            "ControlShiftSuper, S,   ${e} -r 'mpris?.pause()'"
+            "ControlSuper, P,    ${e} -r 'mpris?.previous()'"
+            "ControlSuper, N,    ${e} -r 'mpris?.next()'"
             "ControlSuperShiftAlt, L, exec, swaylock"
             "ControlSuperShiftAlt, D, exec, systemctl poweroff"
             # Applauncher
