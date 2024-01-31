@@ -70,7 +70,7 @@ return {
       \ luaformatter
       \ lua-language-server
       \ marksman
-      \ vue-language-server
+      \ vuels
       \ jdtls
       \ vscode-java-decompiler
       \ java-debug-adapter
