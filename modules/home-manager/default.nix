@@ -21,4 +21,5 @@
   swww-switch = import ./swww-switch.nix;
   gnome-terminal = import ./gnome-terminal.nix;
   tmux = import ./tmux.nix;
+  wezterm = import ./wezterm.nix;
 }
