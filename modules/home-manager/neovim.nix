@@ -10,6 +10,8 @@
   home.packages = with pkgs; [
     lua-language-server
     clang-tools
+    rust-analyzer
+    maven
     lemminx
   ];
 
