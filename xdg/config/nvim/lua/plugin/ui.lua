@@ -1,7 +1,16 @@
 return {
   -- buffer | statusline | icon | treeview | startup buffer
   { 'echasnovski/mini.starter', cond = not vim.g.vscode, config = function()
-      require('mini.starter').setup()
+      local starter = require('mini.starter')
+      starter.setup({
+        items = {
+          starter.sections.sessions(5, true),
+          starter.sections.recent_files(5, true, true),
+          starter.sections.recent_files(5, false, true),
+          starter.sections.builtin_actions(),
+
+        }
+      })
     end
   },
   { 'kyazdani42/nvim-web-devicons' },
