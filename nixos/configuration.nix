@@ -72,6 +72,11 @@
     config.nix.registry
       ;
 
+  services.tlp.settings = {
+    INTEL_GPU_MIN_FREQ_ON_AC = 300;
+    INTEL_GPU_MIN_FREQ_ON_BAT = 300;
+  };
+
   nix.package = pkgs.nixFlakes;
   nix.settings = {
     # Enable flakes and new 'nix' command
