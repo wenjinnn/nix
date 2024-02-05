@@ -31,6 +31,12 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      font-name = "Sans 11";
+      monospace-font-name = "Monospace 10";
+      document-font-name = "Sans 11";
+    };
+    "org/gnome/desktop/wm/preferences" = {
+      titlebar-font = "Sans Bold 11";
     };
   };
   qt = {
