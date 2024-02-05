@@ -146,6 +146,7 @@
     gnome.nautilus-python
     gnome.gnome-tweaks
     gnome.gnome-themes-extra
+    gnome.dconf-editor
     waydroid
     bottles
     telegram-desktop
