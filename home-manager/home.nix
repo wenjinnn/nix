@@ -12,21 +12,13 @@
   imports = with outputs.homeManagerModules; [
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
-    hyprland
     zsh
     neovim
     git
-    fcitx5
-    theme
     ctags
     ranger
-    mpv
     mime
     git-sync
-    bingwallpaper-get
-    swww-switch
-    foot
-    tmux
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -68,10 +60,6 @@
     homeDirectory = "/home/wenjin";
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
-
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
@@ -91,9 +79,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')/
-    microsoft-edge
     neofetch
-    sassc
     bat
     fd
     ripgrep
@@ -101,30 +87,20 @@
     socat
     lazygit
     jq
-    ffmpeg
-    gimp
-    obs-studio
     lsd
-    unstable.vscode
     cowsay
     file
     which
     tree
-    ranger
     gnused
     gnutar
     gawk
     zstd
-    scrcpy
     gnupg
-    rustdesk
-    libreoffice
-    evolution
     du-dust
     inotify-tools
     libnotify
     lsof
-    dbeaver
     btop
     # nix related
     #
@@ -139,25 +115,11 @@
     unzip
     glib
     killall
-    nautilus-open-any-terminal
     jdk21
-    gnome.nautilus
-    gnome.nautilus-python
-    gnome.gnome-tweaks
-    gnome.gnome-themes-extra
-    gnome.dconf-editor
-    waydroid
-    bottles
-    telegram-desktop
-    discord
     k9s
     minikube
     kubernetes
     kubectl
-    nur.repos.xddxdd.dingtalk
-    nur.repos.xddxdd.wechat-uos-bin
-    nur.repos.xddxdd.qq
-    nur.repos.linyinfeng.wemeet
   ];
 
   # xresources.properties = {
