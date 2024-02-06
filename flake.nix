@@ -31,14 +31,6 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     ags.url = "github:Aylur/ags";
-    # lf-icons = {
-    #   url = "github:gokcehan/lf";
-    #   flake = false;
-    # };
-    # more-waita = {
-    #   url = "github:somepaulo/MoreWaita";
-    #   flake = false;
-    # };
 
     # TODO: Add any other flake you might need
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -132,7 +124,6 @@
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
           ./home-manager/hosts/nixos-wsl.nix
-          { nixpkgs.overlays = [ nur.overlay ]; }
         ];
       };
     };
