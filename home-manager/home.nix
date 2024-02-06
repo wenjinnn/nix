@@ -27,7 +27,6 @@
     swww-switch
     foot
     tmux
-    wezterm
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
