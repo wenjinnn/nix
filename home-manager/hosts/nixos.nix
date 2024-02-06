@@ -13,8 +13,6 @@
     fcitx5
     theme
     mpv
-    bingwallpaper-get
-    swww-switch
     foot
   ];
 

@@ -68,6 +68,59 @@
     # '';
   };
 
+  systemd.user = {
+    services = {
+      bingwallpaper-get = {
+        Unit = {
+          Description = "Download bing wallpaper to target path";
+        };
+        Service = {
+          Type = "oneshot";
+          Environment = "HOME=${config.home.homeDirectory}";
+          ExecStart = "${pkgs.bingwallpaper-get}/bin/bingwallpaper-get && ${pkgs.swww-switch}/bin/swww-switch 0";
+        };
+        Install = {
+          WantedBy = [ "default.target" ];
+        };
+
+      };
+      swww-switch = {
+        Unit = {
+          Description = "switch randowm wallpaper powered by swww";
+        };
+        Service = {
+          Type = "oneshot";
+          Environment = "HOME=${config.home.homeDirectory}";
+          ExecStart = "${pkgs.swww-switch}/bin/swww-switch";
+        };
+        Install = {
+          WantedBy = [ "default.target" ];
+        };
+
+      };
+    };
+    timers = {
+      bingwallpaper-get = {
+        Unit = {
+          Description = "Download bing wallpaper timer";
+        };
+        Timer = {
+          OnCalendar = "hourly";
+        };
+        Install = { WantedBy = [ "timers.target" ]; };
+      };
+      swww-switch = {
+        Unit = {
+          Description = "switch randowm wallpaper powered by swww timer";
+        };
+        Timer = {
+          OnCalendar = "hourly";
+        };
+        Install = { WantedBy = [ "timers.target" ]; };
+      };
+    };
+  };
+
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
