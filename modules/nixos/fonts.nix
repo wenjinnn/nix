@@ -12,8 +12,7 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-emoji
-      sarasa-gothic
-      (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" "Mononoki" "CascadiaCode" "DejaVuSansMono"]; })
+      (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" "Mononoki" "CascadiaCode" "DejaVuSansMono" "Noto" ]; })
       font-awesome
       lexend
       material-symbols
@@ -25,21 +24,34 @@
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         monospace = [
-          "DejaVuSansM Nerd Font Mono"
-          "Sarasa Mono SC"
+          "NotoSansM Nerd Font Mono"
           "Noto Sans Mono CJK SC"
         ];
         sansSerif = [
-          "DejaVu Sans"
-          "Sarasa Sans SC"
           "Noto Sans CJK SC"
         ];
         serif = [
-          "DejaVu Serif"
-          "Sarasa Serif SC"
           "Noto Serif CJK SC"
         ];
       };
+      localConf = ''
+        <?xml version="1.0"?>
+        <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+        <fontconfig>
+          <description>Disable ligatures for monospaced fonts to avoid ff, fi, ffi, etc. becoming only one character wide</description>
+          <match target="font">
+            <test name="family" compare="eq" ignore-blanks="true">
+              <string>NotoSansM Nerd Font Mono</string>
+            </test>
+            <edit name="fontfeatures" mode="append">
+              <string>liga off</string>
+              <string>dlig off</string>
+              <string>calt off</string>
+              <string>clig off</string>
+            </edit>
+          </match>
+        </fontconfig>
+      '';
     };
   };
 }
