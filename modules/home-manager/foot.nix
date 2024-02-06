@@ -6,7 +6,7 @@
     settings = {
       main = {
         term = "xterm-256color";
-        font = "monospace:size=11";
+        font = "monospace:size=12";
         letter-spacing=0;
         dpi-aware="no";
         bold-text-in-bright="no";
