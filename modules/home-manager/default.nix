@@ -17,8 +17,6 @@
   mpv = import ./mpv.nix;
   mime = import ./mime.nix;
   git-sync = import ./git-sync.nix;
-  bingwallpaper-get = import ./bingwallpaper-get.nix;
-  swww-switch = import ./swww-switch.nix;
   gnome-terminal = import ./gnome-terminal.nix;
   tmux = import ./tmux.nix;
   wezterm = import ./wezterm.nix;
