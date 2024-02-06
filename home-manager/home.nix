@@ -105,7 +105,7 @@
     gimp
     obs-studio
     lsd
-    vscode
+    unstable.vscode
     cowsay
     file
     which
