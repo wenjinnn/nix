@@ -38,7 +38,7 @@
       lg = "lazygit";
       ll = "lsd -lah";
       py = "python";
-      rr = "ranger";
+      ya = "yazi";
     };
     plugins = [
       {

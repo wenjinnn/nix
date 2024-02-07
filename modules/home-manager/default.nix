@@ -14,6 +14,7 @@
   fuzzel = import ./fuzzel.nix;
   ctags = import ./ctags.nix;
   ranger = import ./ranger.nix;
+  yazi = import ./yazi.nix;
   mpv = import ./mpv.nix;
   mime = import ./mime.nix;
   git-sync = import ./git-sync.nix;

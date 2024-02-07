@@ -16,7 +16,7 @@
     neovim
     git
     ctags
-    ranger
+    yazi
     mime
     git-sync
 

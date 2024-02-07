@@ -5,7 +5,6 @@
     server.enable = true;
     settings = {
       main = {
-        term = "xterm-256color";
         font = "monospace:size=12";
         letter-spacing=0;
         dpi-aware="no";
