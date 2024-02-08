@@ -181,6 +181,8 @@
             "swayidle -w timeout 300 'swaylock' timeout 360 'hyprctl dispatch dpms off' after-resume 'hyprctl dispatch dpms on' before-sleep 'swaylock && sleep 1 && hyprctl dispatch dpms off'"
             "libinput-gestures-setup start"
             "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+            # fix share pick https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/
+            "dbus-update-activation-environment --systemd --all && systemctl --user import-environment QT_QPA_PLATFORMTHEME"
             "hyprctl dispatch exec [workspace special:monitor silent] foot btop"
             # "hyprctl dispatch exec [workspace special:kdeconnect silent] kdeconnect-app"
             "hyprctl dispatch exec [workspace special:evolution silent] evolution"
