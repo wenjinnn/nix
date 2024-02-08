@@ -9,16 +9,16 @@
   ...
 }: {
   # You can import other NixOS modules here
-  imports = [
+  imports = with outputs.nixosModules; [
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.interception-tools
-    outputs.nixosModules.fonts
-    outputs.nixosModules.xserver
-    outputs.nixosModules.gnome
-    outputs.nixosModules.hyprland
-    outputs.nixosModules.podman
-    outputs.nixosModules.sing-box
-    outputs.nixosModules.bluetooth
+    fonts
+    xserver
+    gnome
+    hyprland
+    podman
+    sing-box
+    bluetooth
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
