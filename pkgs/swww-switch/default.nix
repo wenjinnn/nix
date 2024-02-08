@@ -17,5 +17,5 @@
   patchShebangs $dest
 
   wrapProgram $dest \
-    --prefix PATH ';' ${lib.makeBinPath [ hyprland swww gawk findutils coreutils-full bash ]}
+    --prefix PATH : ${lib.makeBinPath [ hyprland swww gawk findutils coreutils-full bash ]}
 ''

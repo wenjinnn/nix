@@ -4,6 +4,7 @@
 , jq
 , wget
 , coreutils-full
+, gnused
 }: runCommandNoCC "bingwallpaper-get" {
   nativeBuildInputs = [ makeWrapper ];
 } ''
@@ -14,5 +15,5 @@
   patchShebangs $dest
 
   wrapProgram $dest \
-    --prefix PATH ';' ${lib.makeBinPath [ jq wget coreutils-full ]}
+    --prefix PATH : ${lib.makeBinPath [ jq wget gnused coreutils-full ]}
 ''
