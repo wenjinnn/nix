@@ -32,9 +32,6 @@
     libreoffice
     evolution
     dbeaver
-    nautilus-open-any-terminal
-    gnome.nautilus
-    gnome.nautilus-python
     gnome.gnome-tweaks
     gnome.gnome-themes-extra
     gnome.dconf-editor
