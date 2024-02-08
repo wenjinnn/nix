@@ -12,7 +12,7 @@ datestr=$(date +'%Y%m%d')
 exist_file_re="${bing_wallpaper_dir}${datestr}*${resolution}${file_type}"
 exist_file=($exist_file_re)
 if [[ -f "${exist_file}" ]]; then
-    echo 'Today wallpaper exist, abort'
+    echo "Today wallpaper ${exist_file} exist, abort"
     exit 0
 fi
 
