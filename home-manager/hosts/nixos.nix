@@ -31,6 +31,7 @@
     rustdesk
     libreoffice
     evolution
+    evolution-ews
     dbeaver
     gnome.gnome-tweaks
     gnome.gnome-themes-extra
