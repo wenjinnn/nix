@@ -28,7 +28,6 @@
     swayidle
     udiskie
     swww
-    nwg-look
     # gtklock
     # gtklock-userinfo-module
     # gtklock-powerbar-module
