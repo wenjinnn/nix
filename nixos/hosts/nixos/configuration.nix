@@ -9,12 +9,13 @@
   ...
 }: {
   # You can import other NixOS modules here
-  imports = [
+  imports = with outputs.nixosModules; [
     # If you want to use modules your own flake exports (from modules/nixos):
-    outputs.nixosModules.interception-tools
-    outputs.nixosModules.firewall
-    outputs.nixosModules.virt
-    outputs.nixosModules.systemd-boot
+    interception-tools
+    firewall
+    virt
+    systemd-boot
+    waydroid
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd

@@ -16,4 +16,5 @@
   hyprland = import ./hyprland.nix;
   sing-box = import ./sing-box.nix;
   bluetooth = import ./bluetooth.nix;
+  waydroid = import ./waydroid.nix;
 }
