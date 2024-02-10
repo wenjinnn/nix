@@ -278,6 +278,7 @@
             "float,title:^(Open Folder)(.*)$"
             "float,title:^(Save As)(.*)$"
             "float,title:^(Library)(.*)$"
+            "float,title:^(xdg-desktop-portal)(.*)$"
             "nofocus,title:^(.*)(mvi)$"
           ];
           windowrulev2 = [
