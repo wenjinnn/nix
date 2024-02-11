@@ -18,6 +18,7 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1w"
+    "electron-19.1.9"
   ];
 
   home.packages = with pkgs; [
@@ -42,7 +43,7 @@
     discord
     distrobox
     nur.repos.xddxdd.dingtalk
-    nur.repos.xddxdd.wechat-uos-bin
+    nur.repos.xddxdd.wechat-uos
     nur.repos.xddxdd.qq
     nur.repos.linyinfeng.wemeet
 
