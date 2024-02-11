@@ -24,13 +24,15 @@
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         monospace = [
-          "NotoSansM Nerd Font Mono"
+          "CaskaydiaCove Nerd Font Mono"
           "Noto Sans Mono CJK SC"
         ];
         sansSerif = [
+          "Ubuntu Nerd Font"
           "Noto Sans CJK SC"
         ];
         serif = [
+          "Ubuntu Nerd Font"
           "Noto Serif CJK SC"
         ];
       };
