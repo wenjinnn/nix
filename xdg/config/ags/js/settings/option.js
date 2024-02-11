@@ -1,7 +1,7 @@
 import { CACHE_DIR, readFile, writeFile } from 'resource:///com/github/Aylur/ags/utils.js';
 import { exec } from 'resource:///com/github/Aylur/ags/utils.js';
 import options from '../options.js';
-import Service, { Binding } from 'resource:///com/github/Aylur/ags/service.js';
+import Service from 'resource:///com/github/Aylur/ags/service.js';
 import { reloadScss } from './scss.js';
 import { setupHyprland } from './hyprland.js';
 const CACHE_FILE = CACHE_DIR + '/options.json';
@@ -116,12 +116,14 @@ export class Opt extends Service {
             return;
         }
 
-        this.#value = this.format(value);
-        this.changed('value');
+        if (this.value !== value) {
+            this.#value = this.format(value);
+            this.changed('value');
 
-        if (reload && !this.noReload) {
-            reloadScss();
-            setupHyprland();
+            if (reload && !this.noReload) {
+                reloadScss();
+                setupHyprland();
+            }
         }
     }
 
