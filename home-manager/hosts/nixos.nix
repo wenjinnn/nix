@@ -40,6 +40,7 @@
     bottles
     telegram-desktop
     discord
+    distrobox
     nur.repos.xddxdd.dingtalk
     nur.repos.xddxdd.wechat-uos-bin
     nur.repos.xddxdd.qq
