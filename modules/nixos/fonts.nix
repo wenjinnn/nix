@@ -8,11 +8,9 @@
 }: {
   fonts = {
     packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" "Mononoki" "CascadiaCode" "DejaVuSansMono" "Noto" ]; })
+      sarasa-gothic
+      (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" "Mononoki" "CascadiaCode" "DejaVuSansMono" ]; })
       font-awesome
       lexend
       material-symbols
@@ -25,15 +23,15 @@
         emoji = [ "Noto Color Emoji" ];
         monospace = [
           "CaskaydiaCove Nerd Font Mono"
-          "Noto Sans Mono CJK SC"
+          "Sarasa Mono SC"
         ];
         sansSerif = [
           "Ubuntu Nerd Font"
-          "Noto Sans CJK SC"
+          "Sarasa UI SC"
         ];
         serif = [
           "Ubuntu Nerd Font"
-          "Noto Serif CJK SC"
+          "Sarasa fixed Slab SC"
         ];
       };
     };
