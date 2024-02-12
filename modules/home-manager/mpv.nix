@@ -14,10 +14,10 @@
   # };
   programs.mpv = {
     enable = true;
-    scripts = with pkgs; [
+    scripts = with pkgs.unstable; [
       mpvScripts.mpris
       mpvScripts.uosc
-      unstable.mpvScripts.mpv-cheatsheet
+      mpvScripts.mpv-cheatsheet
       mpvScripts.visualizer
       mpvScripts.cutter
       mpvScripts.autoload
@@ -26,5 +26,10 @@
       mpvScripts.webtorrent-mpv-hook
       mpvScripts.quality-menu
     ];
+    config = {
+      osd-bar = "no";
+      border = "no";
+    };
+
   };
 }
