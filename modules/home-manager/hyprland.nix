@@ -22,7 +22,6 @@
     pavucontrol
     swappy
     brightnessctl
-    ranger
     gnupg
     libsForQt5.kdeconnect-kde
     swayidle
