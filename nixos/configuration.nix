@@ -6,6 +6,7 @@
   lib,
   config,
   pkgs,
+  username,
   ...
 }: {
   # You can import other NixOS modules here
@@ -83,7 +84,7 @@
     experimental-features = "nix-command flakes";
     # Deduplicate and optimize nix store
     auto-optimise-store = true;
-    trusted-users = [ "wenjin" ];
+    trusted-users = [ "${username}" ];
     # the system-level substituers & trusted-public-keys
     # given the users in this list the right to specify additional substituters via:
     #    1. `nixConfig.substituers` in `flake.nix`

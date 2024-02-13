@@ -60,6 +60,7 @@
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
+    username = "wenjin";
   in {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
@@ -82,7 +83,7 @@
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs username;};
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
@@ -94,7 +95,7 @@
       };
       nixos-wsl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs username;};
         modules = [
           ./nixos/configuration.nix
           ./nixos/hosts/nixos-wsl
@@ -108,7 +109,7 @@
     homeConfigurations = {
       "wenjin@nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs username;};
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
@@ -119,7 +120,7 @@
       };
       "wenjin@nixos-wsl" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs username;};
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix

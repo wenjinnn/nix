@@ -1,8 +1,11 @@
 {
+  username,
+  ...
+}: {
   # git
   programs.git = {
     enable = true;
-    userName = "wenjin";
+    userName = "${username}";
     userEmail = "hewenjin94@outlook.com";
     extraConfig = {
       color.ui = true;
