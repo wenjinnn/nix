@@ -38,6 +38,7 @@
     wl-clipboard
     xdg-utils
     wl-gammactl
+    unstable.xwaylandvideobridge
   ];
 
   xdg.desktopEntries."org.gnome.Settings" = {

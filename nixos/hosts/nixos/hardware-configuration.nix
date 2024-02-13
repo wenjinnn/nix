@@ -11,7 +11,7 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   boot.resumeDevice = "/dev/disk/by-uuid/63c28fde-17cc-44bb-aa1b-6658c4107d3f";
   boot.kernelParams = [ "resume_offset=13194284" ];
  
