@@ -35,3 +35,16 @@ function! OnUIEnter(event) abort
   endif
 endfunction
 autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+
+" fcitx5 rime
+" Disable the input method when exiting insert mode and save the state
+" 2 means that the input method was opened in the previous state, and the input method is started when entering the insert mode
+autocmd InsertLeave * :silent call system("busctl call --user org.fcitx.Fcitx5 /rime org.fcitx.Fcitx.Rime1 SetAsciiMode b 1")
+
+" sync wsl clipboard
+if has('wsl')
+  augroup Yank
+  autocmd!
+  autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+  augroup END
+endif

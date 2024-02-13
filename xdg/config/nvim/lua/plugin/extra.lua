@@ -3,7 +3,9 @@ return {
   {
     'NTBBloodbath/rest.nvim',
     cond = not vim.g.vscode,
-    config = true
+    config = function()
+      require("rest-nvim").setup()
+    end
   },
   {
     'nvim-orgmode/orgmode',
