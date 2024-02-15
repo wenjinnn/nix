@@ -156,6 +156,11 @@ return {
     end
   },
   { 'echasnovski/mini.files', cond = not vim.g.vscode, config = function ()
-    require('mini.files').setup({windows = {preview = true}})
+    require('mini.files').setup({
+      windows = {
+        preview = true,
+        width_preview = 40,
+      }
+    })
   end }
 }
