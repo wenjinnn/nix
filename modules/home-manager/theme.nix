@@ -22,7 +22,7 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    # x11.enable = true;
+    x11.enable = true;
     package = pkgs.bibata-cursors;
     name = "Adwaita";
     size = 24;
@@ -57,8 +57,8 @@
     };
 
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.unstable.morewaita-icon-theme;
+      name = "MoreWaita";
     };
 
   };
